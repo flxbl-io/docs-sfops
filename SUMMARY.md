@@ -6,6 +6,8 @@
 * [Environments](environments/README.md)
   * [Creating an Environment](environments/creating-an-environment.md)
   * [Authenticating to Environments](environments/authenticating-to-environments.md)
+  * [Review Environments](environments/review-environments/README.md)
+    * [Configuring Review Sandboxes](environments/review-environments/configuring-review-sandboxes.md)
 * [Scheduled Jobs](scheduled-jobs/README.md)
   * [Job - CI Sandbox - Creator](scheduled-jobs/job-ci-sandbox-creator.md)
   * [Job - CI Sandbox - Allocate to Pool](scheduled-jobs/job-ci-sandbox-allocate-to-pool.md)
