@@ -43,4 +43,10 @@ The  `<your-org>sfops-gh-actions/.github/workflows/sandbox-pool-creator.yml@main
 | sourceSB           | string | Name of the sandbox that this sandbox has to be cloned from.   If the sandbox has to be created from production, mention this attribute as 'production' |
 | usersToBeActivated | string | Only activate the mentioned users in this sandbox and deactivate everyone else                                                                          |
 
-You could have one or more of  pools mentioned in a single configuration file and could have multiple configuration files.  When you have more than one configuration files, ensure that you have replicated the equivalent github workflow and provided the right file path to your config file\
+You could have one or more of  pools mentioned in a single configuration file and could have multiple configuration files.  When you have more than one configuration files, ensure that you have replicated the equivalent github workflow and provided the right file path to your config file
+
+
+
+{% hint style="warning" %}
+Review sandboxes are dedicated to a single PR, if you would like to reuse  review sandboxes (not recommended) due to shortage of licenses or due to issues with provisioning sandboxes, please set 'SFOPS\_RETURN\_REVIEW\_BACK\_TO\_POOL' to true in your Actions/Variables
+{% endhint %}
