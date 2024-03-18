@@ -8,17 +8,9 @@
   * [Authenticating to Environments](environments/authenticating-to-environments.md)
   * [Review Environments](environments/review-environments/README.md)
     * [Configuring Review Sandboxes](environments/review-environments/configuring-review-sandboxes.md)
-* [Scheduled Jobs](scheduled-jobs/README.md)
-  * [Job - CI Sandbox - Creator](scheduled-jobs/job-ci-sandbox-creator.md)
-  * [Job - CI Sandbox - Allocate to Pool](scheduled-jobs/job-ci-sandbox-allocate-to-pool.md)
-  * [Jobs - Report results of all tests](scheduled-jobs/jobs-report-results-of-all-tests.md)
-* [Workflows](workflows/README.md)
-  * [On Push](workflows/build-deploy-and-publish.md)
-  * [Release a Domain](workflows/release-a-domain.md)
-  * [Hotfix Workflow](workflows/hotfix-workflow.md)
-
-## ⁉️ faq
-
-* [Scratch Orgs](faq/scratch-orgs/README.md)
-  * [Handling Org-Wide Email Addresses](faq/scratch-orgs/handling-org-wide-email-addresses.md)
-  * [Scratch Org Error Codes](faq/scratch-orgs/scratch-org-error-codes.md)
+* [Release a Domain](release-a-domain.md)
+* [Hotfix Workflow](hotfix-workflow.md)
+* [Project Workflows](project-workflows/README.md)
+  * [sfops -  Review Sandbox - Creator](project-workflows/job-ci-sandbox-creator.md)
+  * [sfops - Sandbox To Pool - Allocater](project-workflows/sfops-sandbox-to-pool-allocater.md)
+  * [sfops - On Push to Branch](project-workflows/build-deploy-and-publish.md)

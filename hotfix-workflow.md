@@ -10,7 +10,7 @@ Please note hotfix is an anti pattern and should not be used. We have kept this 
 
 #### Step 1: Activate Apply a Patch action in sfops dev central
 
-<figure><img src="../../.gitbook/assets/hotfix.png" alt=""><figcaption><p>Click on Attempt a Patch</p></figcaption></figure>
+<figure><img src=".gitbook/assets/hotfix.png" alt=""><figcaption><p>Click on Attempt a Patch</p></figcaption></figure>
 
 #### Step 2: Create and Validate a Hotfix Pull Request
 
@@ -18,7 +18,7 @@ Create a Pull Request against the newly created release branch with your hotfix 
 
 #### Step 3: Build and Cherry-Pick the Hotfix
 
-Upon merging the Pull Request, the ["Build, Deploy & Publish"](build-deploy-and-publish.md) workflow will be executed. The workflow uses the respective release branch that was created.
+Upon merging the Pull Request, the ["Build, Deploy & Publish"](project-workflows/build-deploy-and-publish.md) workflow will be executed. The workflow uses the respective release branch that was created.
 
 This workflow will build and publish the updated packages to be included in the release. Additionally, an automated cherry-picker process will create a new Pull Request against the main branch with the hotfix changes.
 
