@@ -14,7 +14,7 @@ layout:
 
 # Authenticating to Environments
 
-Environments in sfops are authenticated using the credentials stored in Github. This section describes the various mechanisms used for authenticating environments\\
+Environments in sfops are authenticated using the credentials stored in Github. This section describes the various mechanisms used for authenticating environments
 
 ### Authenticating to Production Environment
 
@@ -28,10 +28,10 @@ Authenticating to any other environments backed by a sandbox, depends on how the
 
 Sandboxes created by the same production user can be authenticated by using the sandbox name, all that is required is the use of setting up the SBX\_NAME variable in environment as shown below\\
 
-<figure><img src="../../.gitbook/assets/EnvVarsSandbox.png" alt=""><figcaption><p>Use of SBX_NAME in Authentication</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/EnvVarsSandbox.png" alt=""><figcaption><p>Use of SBX_NAME in Authentication</p></figcaption></figure>
 
 {% hint style="danger" %}
-Please note, when a sandbox is refreshed from the UI or using CLI, irrespective of whether the action was done by the user configured in Github, sfops will not be able to authenticate to this environment, and you will need to provide SB\_SFDX\_AUTH\_URL as mentioned in #2.
+Please note, when a sandbox is refreshed from the UI, irrespective of whether the action was done by the same user configured in Github, sfops will not be able to authenticate to this environment, and you will need to provide SB\_SFDX\_AUTH\_URL as mentioned in #2.
 {% endhint %}
 
 2.  **Sandboxes created by any other users in production**\
@@ -39,4 +39,4 @@ Please note, when a sandbox is refreshed from the UI or using CLI, irrespective 
     To authenticate a sandbox that was not created by the configured user in Github, one needs to provide a environment secret **SB\_SFDX\_AUTH\_URL** which can be obtained by using the instructions [here](broken-reference).\
     \\
 
-    <figure><img src="../../.gitbook/assets/EnvSecretsSandbox.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/EnvSecretsSandbox.png" alt=""><figcaption></figcaption></figure>
