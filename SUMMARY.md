@@ -8,6 +8,7 @@
   * [Authenticating to Environments](environments/authenticating-to-environments.md)
   * [Review Environments](environments/review-environments/README.md)
     * [Configuring Review Sandboxes](environments/review-environments/configuring-review-sandboxes.md)
+    * [Creation and Allocation of Review Sandboxes](environments/review-environments/creation-and-allocation-of-review-sandboxes.md)
 * [Release a Domain](release-a-domain.md)
 * [Hotfix Workflow](hotfix-workflow.md)
 * [Project Workflows](project-workflows/README.md)
