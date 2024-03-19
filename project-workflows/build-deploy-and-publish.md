@@ -1,11 +1,6 @@
 # sfops - On Push to Branch
 
-sfops features prebuilt workflows that is deployed to your projects. These workflows follow roughly the prescribed environment strategy mentioned in flxbl docs. The below sections details the workflow on how a **Release Candidate** gets created upon every merge and how built packages are deployed to **TEST** environments\
-
-
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
-
-This workflow gets triggered on a merge to the `main` branch (or any other configured branches).
+The below sections details the  workflow that get triggered on a push to the `main` and `release/*` branches
 
 ```
 name: 'sfops - On Push to Branch'

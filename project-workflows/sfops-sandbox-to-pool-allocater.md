@@ -1,6 +1,6 @@
 # sfops - Sandbox To Pool - Allocater
 
-
+This workflow is  a scheduled job that is set to run every 30 mins to check the status of  sandboxes in DevHub and update the status of sandboxes in Github
 
 ```
 name: 'sfops - CI Sandbox - Allocate to Pool'
@@ -29,3 +29,8 @@ jobs:
       NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
 
 ```
+
+\
+The job is configured to run every 30 minutes by default. While it's possible to adjust this interval, we recommend against extending it further.\
+\
+The associated workflow will check the status of sandboxes in production,  and update the status of the action variables, updates the sfops dashbard
