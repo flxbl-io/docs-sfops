@@ -2,7 +2,8 @@
 
 * [Overview](README.md)
 * [Setting up](setting-up/README.md)
-  * [1. Setting up a Github App](setting-up/github-app.md)
+  * [1. Create a GitHub App](setting-up/github-app.md)
+  * [2. Setting up your repository](setting-up/2.-setting-up-your-repository.md)
 * [Environments](environments/README.md)
   * [Creating an Environment](environments/creating-an-environment.md)
   * [Authenticating to Environments](environments/authenticating-to-environments.md)
