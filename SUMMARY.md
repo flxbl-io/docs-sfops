@@ -2,8 +2,10 @@
 
 * [Overview](README.md)
 * [Setting up](setting-up/README.md)
-  * [1. Create a GitHub App](setting-up/github-app.md)
-  * [2. Setting up your repository](setting-up/2.-setting-up-your-repository.md)
+  * [1. Create repositories](setting-up/1.-create-repositories.md)
+  * [2. Create a GitHub App](setting-up/github-app.md)
+  * [3. Setting up sfops repository](setting-up/3.-setting-up-sfops-repository.md)
+  * [4. Trigger the workflows](setting-up/4.-trigger-the-workflows.md)
 * [Environments](environments/README.md)
   * [Creating an Environment](environments/creating-an-environment.md)
   * [Authenticating to Environments](environments/authenticating-to-environments.md)
