@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Overview](README.md)
+* [Features](features.md)
 * [Setting up](setting-up/README.md)
   * [1. Create repositories](setting-up/1.-create-repositories.md)
   * [2. Create a GitHub App](setting-up/github-app.md)
