@@ -1,10 +1,16 @@
 ---
 description: >-
-  sfops features a comprehensive list of features that makes ALM related process
+  sfops features a comprehensive list of features that makes ALM-related process
   a breeze in your Salesforce project.
 ---
 
 # Features
+
+sfops is built on top of [sfp](https://app.gitbook.com/o/fKx1Ub4x8BCvXSpvO1Hz/s/YLI5Ts7pWhWQV9UaBn3H/), which means it has all the great features that you already love, when it comes to orchestrating packages.  By combining the extensibility of GitHub actions, and the simplicity of GitHub pages, get ready for an amazing set of features.
+
+## Environment Management
+
+sfops features comprehensive scratch org pools, sandbox pools that allows to manage a pool of orgs ready for use as developer/review environments saving considerable amount of time and unlocking never seen before workflows for your salesforce projects
 
 ## Dev Central
 
