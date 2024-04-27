@@ -20,8 +20,8 @@ sfops is a collection of reusable Github Actions, Reusable Workflows along with 
 
 sfops introduces the concepts of issue ops to Salesforce, where most operational requests are raised as a GitHub issue.  The issues are then picked up by automation with a human in loop so that if the automation fails for any reason, or if the task is overtly complex, your friendly Salesforce admin can always help.  sfops make development-related operations an absolute breeze
 
-{% embed url="https://murf.ai/embeds/index.html?embedId=lvhnr1b3" %}
-sfops issue ops
+{% embed %}
+ <iframe class="murf-embed" width="560" height="315" src="https://murf.ai/embeds/index.html?embedId=lvhnr1b3" allowfullscreen title="Murf Embed Player" style="border: none;"></iframe> <script src="https://murf.ai/embeds/widget.js" ></script>
 {% endembed %}
 
 
