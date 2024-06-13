@@ -41,3 +41,18 @@ Please note, when a sandbox is refreshed from the UI, irrespective of whether th
 
 
 <figure><img src="../.gitbook/assets/EnvSecretsSandbox.png" alt=""><figcaption></figcaption></figure>
+
+If the environment is used assigned to '**release**' category or has been assigned 'test' (daily test run), you also need to set up additional variable `<NAME_OF_THE_ENVIRONMENT>_SFDX_AUTH_URL` as repository secret.  (This is due to a limitation where secrets of the environment cant be acessed without approvals and hence can block automations which require to be run without intervention)\
+\
+The name of the environments that are supported for this mode should be one of the following
+
+* &#x20;STAGING,
+* SIT
+* &#x20;PREPROD
+* UAT
+* QA
+* IQA&#x20;
+* SIT\
+
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
