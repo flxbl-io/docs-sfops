@@ -55,4 +55,4 @@ The name of the environments that are supported for this mode should be one of t
 * SIT\
 
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>

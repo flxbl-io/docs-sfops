@@ -2,12 +2,6 @@
 
 * [Overview](README.md)
 * [Features](features.md)
-* [Setting up](setting-up/README.md)
-  * [1. Create repositories](setting-up/1.-create-repositories.md)
-  * [2. Create a GitHub App](setting-up/github-app.md)
-  * [3. Setting up sfops repository](setting-up/3.-setting-up-sfops-repository.md)
-  * [4. Trigger the workflows](setting-up/4.-trigger-the-workflows.md)
-  * [5. Setting up  project repository](setting-up/5.-setting-up-project-repository.md)
 * [Environments](environments/README.md)
   * [Creating an Environment](environments/creating-an-environment.md)
   * [Authenticating to Environments](environments/authenticating-to-environments.md)
@@ -21,6 +15,13 @@
   * [sfops - Sandbox To Pool - Allocater](project-workflows/sfops-sandbox-to-pool-allocater.md)
   * [sfops - On Push to Branch](project-workflows/build-deploy-and-publish.md)
   * [sfops - On Pull Request Comments](project-workflows/sfops-on-pull-request-comments.md)
+* [Setup for self managed instances](setting-up/README.md)
+  * [1. Create repositories](setting-up/1.-create-repositories.md)
+  * [2. Create a GitHub App](setting-up/github-app.md)
+  * [3. Setting up sfops repository](setting-up/3.-setting-up-sfops-repository.md)
+  * [4. Trigger the workflows](setting-up/4.-trigger-the-workflows.md)
+  * [5. Setting up  project repository](setting-up/5.-setting-up-project-repository.md)
+  * [6. Fetching upstream changes](setting-up/6.-fetching-upstream-changes.md)
 
 ## DevCentral
 
