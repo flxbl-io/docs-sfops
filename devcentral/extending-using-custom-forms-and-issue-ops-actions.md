@@ -2,7 +2,7 @@
 
 This comprehensive guide will walk you through the process of creating custom forms that render in your Dev Central dashboard and setting up custom actions triggered by those forms.
 
-By following this guide, you can create custom forms that render in your Dev Central dashboard and set up custom actions triggered by those forms. This approach allows you to extend the functionality of your SFOps workflow to meet your specific project needs while leveraging the power of the sfops issueAnalyzer to process and utilize form data efficiently.
+By following this guide, you can create custom forms that render in your Dev Central dashboard and set up custom actions triggered by those forms. This approach allows you to extend the functionality of your **sfops** workflow to meet your specific project needs while leveraging the power of the sfops issueAnalyzer to process and utilize form data efficiently.
 
 Remember that custom forms and actions should be designed with your team's specific workflows and requirements in mind. Regularly gather feedback from users and iterate on your custom forms and actions to ensure they continue to meet your team's evolving needs.
 
