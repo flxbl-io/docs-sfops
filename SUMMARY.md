@@ -13,6 +13,10 @@
   * [sfops - Sandbox To Pool - Allocater](project-workflows/sfops-sandbox-to-pool-allocater.md)
   * [sfops - On Push to Branch](project-workflows/build-deploy-and-publish.md)
   * [sfops - On Pull Request Comments](project-workflows/sfops-on-pull-request-comments.md)
+  * [sfops -  Execute Releases to any env](project-workflows/sfops-execute-releases-to-any-env.md)
+  * [sfops - Execute Releases](project-workflows/sfops-execute-releases.md)
+  * [sfops - Execute Issue Ops](project-workflows/sfops-execute-issue-ops.md)
+  * [sfops - Close Issues](project-workflows/sfops-close-issues.md)
 
 ## IssueOps
 
