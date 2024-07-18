@@ -8,8 +8,6 @@
   * [Review Environments](environments/review-environments/README.md)
     * [Configuring Review Sandboxes](environments/review-environments/configuring-review-sandboxes.md)
     * [Creation and Allocation of Review Sandboxes](environments/review-environments/creation-and-allocation-of-review-sandboxes.md)
-* [Release a Domain](release-a-domain.md)
-* [Hotfix Workflow](hotfix-workflow.md)
 * [Project Workflows](project-workflows/README.md)
   * [sfops - Review Sandbox - Creator](project-workflows/job-ci-sandbox-creator.md)
   * [sfops - Sandbox To Pool - Allocater](project-workflows/sfops-sandbox-to-pool-allocater.md)
@@ -25,7 +23,11 @@
 
 ## IssueOps
 
-* [Request elevated previlege in production](issueops/request-elevated-previlege-in-production.md)
+* [Access](issueops/access/README.md)
+  * [Request elevated previlege in production](issueops/access/request-elevated-previlege-in-production.md)
+* [Release](issueops/release/README.md)
+  * [Release a Domain](issueops/release/release-a-domain.md)
+  * [Hotfix Workflow](issueops/release/hotfix-workflow.md)
 
 ## DevCentral
 

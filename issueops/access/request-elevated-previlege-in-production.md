@@ -1,6 +1,6 @@
 # Request elevated previlege in production
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 This issue and its associated configuration allows you to provide different access levels for developers who need temporary elevated privileges in a production  org. This feature is particularly useful in scenarios where developers require limited-time access to perform specific tasks or troubleshoot issues directly in the production environment.
 
