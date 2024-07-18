@@ -23,6 +23,10 @@
   * [5. Setting up  project repository](setting-up/5.-setting-up-project-repository.md)
   * [6. Fetching upstream changes](setting-up/6.-fetching-upstream-changes.md)
 
+## IssueOps
+
+* [Request elevated previlege in production](issueops/request-elevated-previlege-in-production.md)
+
 ## DevCentral
 
 * [Customising Menu](devcentral/customising-menu.md)
