@@ -24,8 +24,8 @@ Environments in sfops is tied to GitHub Environments ([https://docs.github.com/e
 \
 Environments added to GitHub will be displayed in Environment Snapshot in sfops Dev Central as shown below
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Environments in sfops dev central</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
-Environments can be created from dev central by  using the `add` icon in each of the category. One could also use the issue template   '**Request a new environment**',  directly, where you could fill in the details, and the environment gets created. Please note the sandbox has to be created previously before triggering the request.
+Environments can be created from dev central by  using the `add` icon in each of the category. One could also use the    '**Request a new environment**', from the service catalogue directly, where you could fill in the details, and the environment gets created. Please note the sandbox has to be created previously before triggering the request.
 
-<figure><img src="../.gitbook/assets/RequestEnvTemplate.png" alt=""><figcaption><p>Issue form to create an environment</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
