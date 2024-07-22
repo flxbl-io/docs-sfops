@@ -58,4 +58,13 @@ Within an individual build-deploy-publish cycle, the following happens in sequen
 There could be 0..N deployment targets, and these deployment targets are marked by the filter "type:test, branch:\<current\_branch>", If no deployment targets , the process is skipped and moved to publish. The deployment targets could be dynamic or static
 {% endhint %}
 
-One then could determine, after further testing whether the created release candidate can be promoted to production or rejected. As you must have noticed, these tests are more quality gates. Tests such as User Acceptance Testing should be carried out before the work item is merged to the branch. If any bugs are discovered at this stage, these should be fixed in priority or the feature should be toggled off or excluded from release candidate for further promotion
+
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+One then could determine, after further testing whether the release candidate created (upon publish)  can be promoted to production or rejected.  Though this workflow assumes the following\
+\-  Any manual pre steps have to be undertaken before the change is merged to trunk, \
+\-  The pipeline only deals with deploying to environments and doesnt consider the time spend in tesing and the testing approach in general\
+\-  You must manually orchestrate or block other merges from being pushed to  these environments while testing is underway.  (sfops has a more stringent deploy from branch model, which would deploy a feature branch to test environments, before it can be merged to trunk)\
+\
+As you must have noticed, these tests are more quality gates. Tests such as User Acceptance Testing should be carried out before the work item is merged to the branch. If any bugs are discovered at this stage, these should be fixed in priority or the feature should be toggled off or excluded from release candidate for further promotion.&#x20;
