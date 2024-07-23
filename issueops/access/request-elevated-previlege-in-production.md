@@ -18,6 +18,7 @@ The YAML configuration file for developer elevation has the following structure:
 
 ```yaml
 devconfig:
+  defaultAccessLevel: <access-level-name>
   accessLevels:
     <access-level-name>:
       profile: <profile-name>
@@ -28,7 +29,6 @@ devconfig:
         - <permission-set-license-name>
       permissionSetGroups:
         - <permission-set-group-name>  
-      duration: <duration-in-hours>
 ```
 
 * `accessLevels`: This section defines the different access levels available for developers.
@@ -37,7 +37,6 @@ devconfig:
     * `permissionSets` (optional): List the permission sets to be assigned to the developer for this access level.
     * `permissionSetLicenses` (optional): List the permission set licenses to be assigned to the developer for this access level.
     * `permissionSetGroups` (optional): List the permission set groups to be assigned to the developer for this access level.
-    * `duration`: Specify the duration (in hours) for which the elevated access will be granted.
 
 ### Example Configuration
 
@@ -45,6 +44,7 @@ Here's an example configuration that demonstrates different access levels:
 
 ```yaml
 devconfig:
+  defaultAccessLevel: "developer"
   accessLevels:
     developer:
       profile: Developer Limited Access
@@ -53,25 +53,22 @@ devconfig:
         - Prod_Access_48hrs
       permissionSetLicenses:  
         - Salesforce DX
-      duration: 48
     support:
       profile: Support Limited Access
       permissionSets:
         - Support_Access
         - Prod_Access_8hrs 
-      duration: 8
     ci-cd:
       profile: CI/CD Limited Access
       permissionSetGroups:
         - DevOps_Tools_Access
         - Prod_Deploy_Access
-      duration: 4
 ```
 
 In this example:
 
-* The `developer` access level grants the "Developer Limited Access" profile, assigns the "DX\_Limited\_Access" and "Prod\_Access\_48hrs" permission sets, assigns the "Salesforce DX" permission set license, and sets the duration to 48 hours.
-* The `support` access level grants the "Support Limited Access" profile, assigns the "Support\_Access" and "Prod\_Access\_8hrs" permission sets, and sets the duration to 8 hours.
-* The `ci-cd` access level grants the "CI/CD Limited Access" profile, assigns the "DevOps\_Tools\_Access" and "Prod\_Deploy\_Access" permission set groups, and sets the duration to 4 hours.
+* The `developer` access level grants the "Developer Limited Access" profile, assigns the "DX\_Limited\_Access" and "Prod\_Access\_48hrs" permission sets, assigns the "Salesforce DX" permission set license
+* The `support` access level grants the "Support Limited Access" profile, assigns the "Support\_Access" and "Prod\_Access\_8hrs" permission sets
+* The `ci-cd` access level grants the "CI/CD Limited Access" profile, assigns the "DevOps\_Tools\_Access" and "Prod\_Deploy\_Access" permission set groups
 
 You will need to create an equivalent `devconfig.yaml` file and place it in the config folder in your project repository.
