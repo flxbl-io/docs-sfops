@@ -9,14 +9,15 @@
     * [Configuring Review Sandboxes](environments/review-environments/configuring-review-sandboxes.md)
     * [Creation and Allocation of Review Sandboxes](environments/review-environments/creation-and-allocation-of-review-sandboxes.md)
 * [Project Workflows](project-workflows/README.md)
-  * [sfops - Review Sandbox - Creator](project-workflows/job-ci-sandbox-creator.md)
-  * [sfops - Sandbox To Pool - Allocater](project-workflows/sfops-sandbox-to-pool-allocater.md)
-  * [sfops - On Push to Branch](project-workflows/build-deploy-and-publish.md)
+  * [sfops - Execute Issue Ops](project-workflows/sfops-execute-issue-ops.md)
   * [sfops - On Pull Request Comments](project-workflows/sfops-on-pull-request-comments.md)
+  * [sfops - Close Issues](project-workflows/sfops-close-issues.md)
+  * [sfops - Execute Every 30 mins](project-workflows/sfops-execute-every-30-mins.md)
+  * [sfops - Daily Job Executor](project-workflows/sfops-daily-job-executor.md)
+  * [sfops - Review Sandbox - Creator](project-workflows/job-ci-sandbox-creator.md)
+  * [sfops - On Push to Branch](project-workflows/build-deploy-and-publish.md)
   * [sfops -  Execute Releases to any env](project-workflows/sfops-execute-releases-to-any-env.md)
   * [sfops - Execute Releases](project-workflows/sfops-execute-releases.md)
-  * [sfops - Execute Issue Ops](project-workflows/sfops-execute-issue-ops.md)
-  * [sfops - Close Issues](project-workflows/sfops-close-issues.md)
 
 ## IssueOps
 
