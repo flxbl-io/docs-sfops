@@ -32,10 +32,6 @@
 * [Customising Menu](devcentral/customising-menu.md)
 * [Extending using  Custom Forms and  Issue Ops Actions](devcentral/extending-using-custom-forms-and-issue-ops-actions.md)
 
-## update-instructions
-
-* [Updating to v29.0.0](update-instructions/updating-to-v29.0.0.md)
-
 ## self managed instances
 
 * [Setup for self managed instances](self-managed-instances/setting-up/README.md)
@@ -45,3 +41,8 @@
   * [4. Trigger the workflows](self-managed-instances/setting-up/4.-trigger-the-workflows.md)
   * [5. Setting up  project repository](self-managed-instances/setting-up/5.-setting-up-project-repository.md)
   * [6. Fetching upstream changes](self-managed-instances/setting-up/6.-fetching-upstream-changes.md)
+* [Update Instructions](self-managed-instances/update-instructions/README.md)
+  * [Updating to v29.0.0](self-managed-instances/update-instructions/updating-to-v29.0.0.md)
+  * [Updating to v30.3.1 and above](self-managed-instances/update-instructions/updating-to-v30.3.1-and-above.md)
+* [Workflow details](self-managed-instances/workflow-details/README.md)
+  * [Sync Upstream Repository and Create Pull Request](self-managed-instances/workflow-details/sync-upstream-repository-and-create-pull-request.md)
