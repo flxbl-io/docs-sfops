@@ -27,6 +27,10 @@
   * [Release a Domain](issueops/release/release-a-domain.md)
   * [Hotfix Workflow](issueops/release/hotfix-workflow.md)
 
+## Changelog
+
+* [v30.5.0](changelog/v30.5.0.md)
+
 ## DevCentral
 
 * [Customising Menu](devcentral/customising-menu.md)
