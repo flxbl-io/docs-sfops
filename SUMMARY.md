@@ -29,7 +29,7 @@
 
 ## Changelog
 
-* [v30.5.0](changelog/v30.5.0.md)
+* [November24](changelog/november24.md)
 
 ## DevCentral
 

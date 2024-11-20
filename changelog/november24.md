@@ -1,6 +1,6 @@
-# v30.5.0
+# November24
 
-sfops v30.5.0 brings the following updates
+sfops November 24 (v30.5.0)  brings the following updates
 
 ### sfops
 
