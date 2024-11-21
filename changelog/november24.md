@@ -37,11 +37,11 @@ supabase:
 For self-hosted users, or managed instance users who do not wish to use the authentication, please feel free to comment on this section in your  config (\_config.yaml file in devcentral repo)
 {% endhint %}
 
-Utilizing this configuration,  dev central will be able to offer tighter integrations with Github. These integrations will be rolled out progressively over the coming releases
+Utilizing this configuration,  dev central can offer tighter integrations with Github. These integrations will be rolled out progressively over the coming releases
 
 
 
-Please note your GitHub Admin has to authorize Flxbl's GItHub Connector App for authnetication to work
+Please note your GitHub Admin has to authorize Flxbl's GitHub Connector App for authentication to work
 
 <figure><img src="../.gitbook/assets/CleanShot 2024-11-21 at 11.54.10.png" alt=""><figcaption><p>Authenticate Flxbl Github Connector App in your org</p></figcaption></figure>
 
