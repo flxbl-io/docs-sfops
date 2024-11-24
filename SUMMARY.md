@@ -51,3 +51,8 @@
   * [Updating to v30.3.1 and above](self-managed-instances/update-instructions/updating-to-v30.3.1-and-above.md)
 * [Workflow details](self-managed-instances/workflow-details/README.md)
   * [Sync Upstream Repository and Create Pull Request](self-managed-instances/workflow-details/sync-upstream-repository-and-create-pull-request.md)
+
+***
+
+* [Legal](legal.md)
+* [Terms of Service for sfops](terms-of-service-for-sfops.md)
