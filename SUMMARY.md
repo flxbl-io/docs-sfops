@@ -54,5 +54,5 @@
 
 ***
 
-* [Legal](legal.md)
-* [Terms of Service for sfops](terms-of-service-for-sfops.md)
+* [Legal](legal/README.md)
+  * [Terms of Service for sfops](legal/terms-of-service-for-sfops.md)
