@@ -1,9 +1,11 @@
 # Hotfix Workflow
 
-This section explains how a hotfix if required could be applied in the context of sfops. These workflows automate the process of patching an existing release branch, and could be used for an accelerated delivery to release changes to **RELEASE** environments\\
+This section explains how a hotfix if required could be applied in the context of sfops. These workflows automate the process of patching an existing active branch (e.g. main), to create a dynamic release branch for applying your pathches.
+
+This process could be used for an accelerated delivery to release changes to **RELEASE** environments
 
 {% hint style="danger" %}
-Please note hotfix is an anti-pattern and should not be used. We have kept this feature for teams who are on their journey to continuous deployment
+Please note hotfix is an anti-pattern and should not be used. We only advise this feature for teams who are on their journey to continuous deployment
 {% endhint %}
 
 ### Hotfix Process
@@ -11,6 +13,8 @@ Please note hotfix is an anti-pattern and should not be used. We have kept this 
 #### Step 1: Activate Apply a Patch action in sfops dev central
 
 <figure><img src="../../.gitbook/assets/hotfix.png" alt=""><figcaption><p>Click on Attempt a Patch</p></figcaption></figure>
+
+sfops will attempt to patch the branch which the release candidate was created on by resetting the commits to the exact stage where the candidate was created. This is only applied on the selected domain. If there are multiple domain, please proceed each one individually.
 
 #### Step 2: Create and Validate a Hotfix Pull Request
 
