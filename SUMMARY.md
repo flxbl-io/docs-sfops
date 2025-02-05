@@ -16,7 +16,7 @@
   * [sfops - Daily Job Executor](project-workflows/sfops-daily-job-executor.md)
   * [sfops - Review Sandbox - Creator](project-workflows/job-ci-sandbox-creator.md)
   * [sfops - On Push to Branch](project-workflows/build-deploy-and-publish.md)
-  * [sfops -  Execute Releases to any env](project-workflows/sfops-execute-releases-to-any-env.md)
+  * [sfops - Execute Releases to any env](project-workflows/sfops-execute-releases-to-any-env.md)
   * [sfops - Execute Releases](project-workflows/sfops-execute-releases.md)
 
 ## IssueOps
@@ -30,11 +30,12 @@
 ## Changelog
 
 * [November24](changelog/november24.md)
+* [January25](changelog/january25.md)
 
 ## DevCentral
 
 * [Customising Menu](devcentral/customising-menu.md)
-* [Extending using  Custom Forms and  Issue Ops Actions](devcentral/extending-using-custom-forms-and-issue-ops-actions.md)
+* [Extending using Custom Forms and Issue Ops Actions](devcentral/extending-using-custom-forms-and-issue-ops-actions.md)
 
 ## self managed instances
 
@@ -43,7 +44,7 @@
   * [2. Create a GitHub App](self-managed-instances/setting-up/github-app.md)
   * [3. Setting up sfops repository](self-managed-instances/setting-up/3.-setting-up-sfops-repository.md)
   * [4. Trigger the workflows](self-managed-instances/setting-up/4.-trigger-the-workflows.md)
-  * [5. Setting up  project repository](self-managed-instances/setting-up/5.-setting-up-project-repository.md)
+  * [5. Setting up project repository](self-managed-instances/setting-up/5.-setting-up-project-repository.md)
   * [6. Fetching upstream changes](self-managed-instances/setting-up/6.-fetching-upstream-changes/README.md)
     * [6.1 Manual Process for Updating sfops from Upstream](self-managed-instances/setting-up/6.-fetching-upstream-changes/6.1-manual-process-for-updating-sfops-from-upstream.md)
 * [Update Instructions](self-managed-instances/update-instructions/README.md)
