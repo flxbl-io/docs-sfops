@@ -1,5 +1,17 @@
 # January25
 
+
+
+{% hint style="info" %}
+sfops January 25 have now been patched to v31.0.2 with sfp v47.3.2 with fixes to
+
+* Unable to set Field History Tracking for Unlocked Packages ([https://source.flxbl.io/flxbl/sfp-pro/issues/15#issuecomment-336](https://source.flxbl.io/flxbl/sfp-pro/issues/15#issuecomment-336))
+* Unable to retrieve profiles in certain orgs&#x20;
+* Hotfix release candidates are not visible in DevCentral&#x20;
+{% endhint %}
+
+\
+\
 sfops January 25 (v31.0.0) bring the following features/fixes
 
 ### sfops
@@ -10,9 +22,13 @@ sfp now requires sandbox and branch names to be encoded, so that sandboxes could
 
 [https://source.flxbl.io/flxbl/sfops/issues/42](https://source.flxbl.io/flxbl/sfops/issues/42)
 
-Please follow the script here
+Please download the migration script provided along with sfp repo
 
-[https://gist.github.com/azlam-abdulsalam/1b8b83c8048abd16235b8b2153afe9c3](https://gist.github.com/azlam-abdulsalam/1b8b83c8048abd16235b8b2153afe9c3)
+{% embed url="https://source.flxbl.io/flxbl/sfp-pro/releases/download/v47.2.5/flxbl-io-migrate-sandbox-pool-vars-1.0.0.tgz" %}
+
+Instructions on using the script are available at&#x20;
+
+{% embed url="https://source.flxbl.io/flxbl/sfp-pro/src/commit/4ce681a1c4ad02388cca81a8ab75dcadea736698/support-packages/migrate-sandbox-pool-vars/README.md" %}
 
 
 
