@@ -37,7 +37,9 @@ Instructions on using the script are available at&#x20;
 
 <figure><img src="../.gitbook/assets/CleanShot 2025-02-05 at 23.19.42@2x.png" alt=""><figcaption><p>Check integration with GitHub</p></figcaption></figure>
 
-sfops duplicate check is now enhanced as a GitHub Check, providing better visibility and accomodate aliasified/unclaimed packages.  As the command is utilizing sfp, you could [https://docs.flxbl.io/sfp/analysing-a-project/duplicate-check](https://docs.flxbl.io/sfp/analysing-a-project/duplicate-check)
+sfops duplicate check is now enhanced as a GitHub Check, providing better visibility and accomodate aliasified/unclaimed packages.  As the command is utilizing sfp, you could read more about it here\
+\
+[https://docs.flxbl.io/sfp/analysing-a-project/duplicate-check](https://docs.flxbl.io/sfp/analysing-a-project/duplicate-check)
 
 **sfp upgraded to v47.2.0**
 
