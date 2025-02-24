@@ -3,11 +3,12 @@
 
 
 {% hint style="info" %}
-sfops January 25 have now been patched to v31.0.2 with sfp v47.3.2 with fixes to
+sfops January 25 have now been patched to v31.0.23with sfp v47.3.5 with fixes to
 
 * Unable to set Field History Tracking for Unlocked Packages ([https://source.flxbl.io/flxbl/sfp-pro/issues/15#issuecomment-336](https://source.flxbl.io/flxbl/sfp-pro/issues/15#issuecomment-336))
 * Unable to retrieve profiles in certain orgs&#x20;
 * Hotfix release candidates are not visible in DevCentral&#x20;
+* Patches to Lock/Deployment Issues in v47.3.2 of sfp
 {% endhint %}
 
 \
