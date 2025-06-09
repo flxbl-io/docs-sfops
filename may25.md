@@ -1,8 +1,48 @@
 # May25
 
-### 🏗️ Major Architecture Change: No More Rebuilding SFP!
+### 🆕 Functional Changes (v31.0.3 → v31.1.1) <a href="#f0-9f-86-95-other-functional-changes-v3103-e2-86-92-v3111" id="f0-9f-86-95-other-functional-changes-v3103-e2-86-92-v3111"></a>
 
-Starting with v31.1.0, SFOPS fundamentally changed how Docker images are built. If you fork SFOPS, you no longer need to rebuild the entire sfp toolchain.
+#### DevCentral Dashboard Enhancement <a href="#devcentral-dashboard-enhancement" id="devcentral-dashboard-enhancement"></a>
+
+* **SFP Server Integration**: DevCentral dashboards now support SFP server-based front door URL functionality
+* Review environments, sandboxes, and scratch orgs pages updated to work with SFP server
+* Improved URL handling for better environment access
+
+#### Major PR Validation Enhancement <a href="#major-pr-validation-enhancement" id="major-pr-validation-enhancement"></a>
+
+* **GitHub Checks API Integration**: PR validation results are now reported through GitHub's native Checks API instead of comments
+* No more cluttered PR comments with validation results
+* Cleaner PR interface with validation status shown in GitHub's checks panel
+* Better integration with GitHub's merge requirements and branch protection rules
+
+#### Workflow Improvements <a href="#workflow-improvements" id="workflow-improvements"></a>
+
+* **SFP Server Support**: All workflows now pass SFP server URL and token through the pipeline
+* **New Release Configuration**: Added "thorough" as a release configuration option
+* **Better Variable Management**: Fixed incorrect variables being passed between workflows
+* Environment variables now properly propagate across all job stages
+
+#### Removed Features <a href="#removed-features" id="removed-features"></a>
+
+* **Deprecated Actions**: Removed unused actions (checkActions, create-or-update-project-card)
+* **fetchAllReleaseNames**: Moved to sfp-pro for better maintainability
+* **Branch Deploy**: Completely removed from all workflows (see project workflow updates above)
+
+#### Bug Fixes <a href="#bug-fixes" id="bug-fixes"></a>
+
+* Fixed filename changes for sfp-pro compatibility
+* Corrected variable passing in project workflows
+* Improved environment variable handling across jobs
+
+### 🔄 Version Compatibility <a href="#f0-9f-94-84-version-compatibility" id="f0-9f-94-84-version-compatibility"></a>
+
+* SFOPS v31.1.x requires sfp-pro base images v31.0.0 or later
+* Using mismatched versions may cause unexpected behavior
+* Always test with your specific base image versions
+
+### 🏗️ Major Architecture Change: No More Rebuilding sfp!
+
+Starting with v31.1.0, SFOPS fundamentally changed how Docker images are built. If you fork sfops, you no longer need to rebuild the entire sfp. This allows one to execute completely isolated not using the flxbl's ghcr regsitry for flxbl managed instances
 
 #### What Changed <a href="#what-changed" id="what-changed"></a>
 
@@ -135,45 +175,7 @@ If you need custom base images:
    * [ ] &#x20;Create a PR to test workflows
    * [ ] &#x20;Verify all automations work correctly
 
-### 🆕 Other Functional Changes (v31.0.3 → v31.1.1) <a href="#f0-9f-86-95-other-functional-changes-v3103-e2-86-92-v3111" id="f0-9f-86-95-other-functional-changes-v3103-e2-86-92-v3111"></a>
 
-#### DevCentral Dashboard Enhancement <a href="#devcentral-dashboard-enhancement" id="devcentral-dashboard-enhancement"></a>
-
-* **SFP Server Integration**: DevCentral dashboards now support SFP server-based front door URL functionality
-* Review environments, sandboxes, and scratch orgs pages updated to work with SFP server
-* Improved URL handling for better environment access
-
-#### Major PR Validation Enhancement <a href="#major-pr-validation-enhancement" id="major-pr-validation-enhancement"></a>
-
-* **GitHub Checks API Integration**: PR validation results are now reported through GitHub's native Checks API instead of comments
-* No more cluttered PR comments with validation results
-* Cleaner PR interface with validation status shown in GitHub's checks panel
-* Better integration with GitHub's merge requirements and branch protection rules
-
-#### Workflow Improvements <a href="#workflow-improvements" id="workflow-improvements"></a>
-
-* **SFP Server Support**: All workflows now pass SFP server URL and token through the pipeline
-* **New Release Configuration**: Added "thorough" as a release configuration option
-* **Better Variable Management**: Fixed incorrect variables being passed between workflows
-* Environment variables now properly propagate across all job stages
-
-#### Removed Features <a href="#removed-features" id="removed-features"></a>
-
-* **Deprecated Actions**: Removed unused actions (checkActions, create-or-update-project-card)
-* **fetchAllReleaseNames**: Moved to sfp-pro for better maintainability
-* **Branch Deploy**: Completely removed from all workflows (see project workflow updates above)
-
-#### Bug Fixes <a href="#bug-fixes" id="bug-fixes"></a>
-
-* Fixed filename changes for sfp-pro compatibility
-* Corrected variable passing in project workflows
-* Improved environment variable handling across jobs
-
-### 🔄 Version Compatibility <a href="#f0-9f-94-84-version-compatibility" id="f0-9f-94-84-version-compatibility"></a>
-
-* SFOPS v31.1.x requires sfp-pro base images v31.0.0 or later
-* Using mismatched versions may cause unexpected behavior
-* Always test with your specific base image versions
 
 ### 🔍 Troubleshooting <a href="#f0-9f-94-8d-troubleshooting" id="f0-9f-94-8d-troubleshooting"></a>
 
