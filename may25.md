@@ -76,11 +76,11 @@ In your GitHub fork, navigate to **Settings** → **Secrets and variables** → 
 
 Add these repository variables:
 
-| Variable Name    | Required Value    | Description                               |
-| ---------------- | ----------------- | ----------------------------------------- |
-| `BASE_REGISTRY`  | `source.flxbl.io` | Registry where sfp base images are hosted |
-| `BASE_REPO`      | `sfops`           | Repository namespace                      |
-| `BASE_IMAGE_TAG` | `v31.1.0`         | Specific version (don't use`latest`)      |
+| Variable Name    | Required Value       | Description                               |
+| ---------------- | -------------------- | ----------------------------------------- |
+| `BASE_REGISTRY`  | `source.flxbl.io`    | Registry where sfp base images are hosted |
+| `BASE_REPO`      | `flxbl`              | Repository namespace                      |
+| `BASE_IMAGE_TAG` | `48.2.9-15526206343` | Specific version (don't use`latest`)      |
 
 ### 2. Configure Registry Credentials <a href="#id-2-configure-registry-credentials" id="id-2-configure-registry-credentials"></a>
 
