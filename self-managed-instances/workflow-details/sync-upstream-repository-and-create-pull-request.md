@@ -53,8 +53,11 @@ Make sure to set these secrets in your repository's settings before running the 
 If the workflow fails, check the logs for detailed error messages. Common issues could include:
 
 * Invalid or missing secrets.
-* Insufficient permissions for the `GHA_TOKEN`.
+* Insufficient permissions for the `GHA_TOKEN`. Select at least the following permissions:
+  * repo (full control)
+  * workflow
 * Network connectivity issues while cloning the repository or fetching tags.
 * Conflicts during the merge process that could not be resolved automatically.
+* If you get `remote: Repository not found.` or `fatal: repository '***/' not found`, you're likely setting the `SFOPS_UPSTREAM_URL` incorrectly. Make sure it follows the format specified above and try it locally on your machine as well using `git fetch https://<username>:<token>@source.flxbl.io/flxbl/sfops.git`
 
 If you encounter any issues, review the logs and ensure that the prerequisites and secrets are properly set up.
