@@ -71,16 +71,9 @@ The new GitHub projects are created at organization level, and requires organiza
 
 * Click **"Create GitHub App"** at the bottom of the form
 * You'll be redirected to your new app's settings page
-* Note the **App ID** displayed at the top - you'll need this for the `SFOPSBOT_APP_ID` secret in Step 7
+* **Keep this tab open** - you'll need information from this page in Step 6
 
-### **Step 5: Generate Private Key**
-
-* On your app's settings page, scroll down to the **Private keys** section
-* Click **"Generate a private key"**
-* The `.pem` file will download automatically - save it securely
-* You'll need this file content for the `SFOPSBOT_APP_PRIVATE_KEY` secret in Step 7
-
-### **Step 6: Install the App**
+### **Step 5: Install the App**
 
 * Navigate to the 'Install App' tab within your app settings
 * Click **"Install"** to initiate the installation process
@@ -92,15 +85,23 @@ The new GitHub projects are created at organization level, and requires organiza
     - `sfops-dev-central`
     - Your Salesforce project repositories
 
-### **Step 7: Store the Private Key and App ID as Secrets**
+### **Step 6: Collect App Credentials and Store as Secrets**
 
-* Store the secrets at the appropriate level:
+#### Collect the required credentials:
+1. **App ID**: Note the App ID displayed at the top of your app's settings page
+2. **Private Key**: 
+   - Scroll down to the **Private keys** section on your app's settings page
+   - Click **"Generate a private key"**
+   - The `.pem` file will download automatically - save it securely
+
+#### Store as GitHub secrets:
+* Navigate to your `sfops` repository → **Settings → Secrets and variables → Actions**
+* Choose where to create the secrets:
   - **Organization secrets** (recommended): Available to all repositories in your org
-  - **Repository secrets**: Store in the `sfops` repository if you prefer repo-level control
-* Navigate to Settings → Secrets and variables → Actions
+  - **Repository secrets**: Scoped to just the `sfops` repository
 * Create two secrets:
-  - **`SFOPSBOT_APP_PRIVATE_KEY`**: Paste the entire contents of the `.pem` file from Step 5
-  - **`SFOPSBOT_APP_ID`**: Paste the App ID number from Step 4
+  - **`SFOPSBOT_APP_PRIVATE_KEY`**: Paste the entire contents of the downloaded `.pem` file
+  - **`SFOPSBOT_APP_ID`**: Paste the App ID number from the settings page
 
 ####
 
