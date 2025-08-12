@@ -95,13 +95,11 @@ The new GitHub projects are created at organization level, and requires organiza
    - The `.pem` file will download automatically - save it securely
 
 #### Store as GitHub secrets:
-* Navigate to your `sfops` repository → **Settings → Secrets and variables → Actions**
-* Choose where to create the secrets:
-  - **Organization secrets** (recommended): Available to all repositories in your org
-  - **Repository secrets**: Scoped to just the `sfops` repository
-* Create two secrets:
-  - **`SFOPSBOT_APP_ID`**: Paste the App ID number from the settings page
-  - **`SFOPSBOT_APP_PRIVATE_KEY`**: Paste the entire contents of the downloaded `.pem` file
+* Navigate to your GitHub organization → **Settings → Secrets and variables → Actions**
+* Create these as **Organization secrets** (required for cross-repository access):
+  - **`SFOPSBOT_APP_ID`**: Paste the App ID number from the settings page (store as Organization variable)
+  - **`SFOPSBOT_APP_PRIVATE_KEY`**: Paste the entire contents of the downloaded `.pem` file (store as Organization secret)
+* These credentials are used by workflows in sfops, sfops-gh-actions, sfops-dev-central, and your Salesforce project repositories
 
 ####
 
