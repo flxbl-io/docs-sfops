@@ -47,7 +47,7 @@ Configure the following permissions for the sfops-bot app:
 | **Pull Requests** | Read & Write | Necessary for the app to automate the handling of pull requests, including merging and labeling                                                |
 | **Secrets**       | Read         | Lets the app manage secrets without compromising their security, essential for secure workflows                                                |
 | **Variables**     | Read & Write | Permit the app to read the variables in the repo. This is vital for dynamic configuration of the environment and branch related configurations |
-| **Workflows**     | Write        | Permit the app to update workflow files, which is vital for maintaining automated processes                                                    |
+| **Workflows**     | Read & Write | Permit the app to update workflow files, which is vital for maintaining automated processes                                                    |
 
 #### Organization Permissions
 | Permission   | Access Level | Purpose                                                                   |
