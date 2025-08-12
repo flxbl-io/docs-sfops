@@ -28,7 +28,10 @@ You can refer to this link to understand how this work behind the scenes
 
 * Navigate to your GitHub organization's settings.
 * Click on "Developer settings" and select "GitHub Apps".
-* Hit "New GitHub App" and input `sfops-bot` as the name.
+* Hit "New GitHub App" and configure:
+  - **GitHub App name**: `sfops-bot`
+  - **Homepage URL**: `https://github.com/YOUR_ORG/sfops` (or your organization URL)
+  - **Webhook**: Uncheck "Active" (webhooks are not needed for sfops-bot)
 * Add an icon and background color in the 'Display Information' to make the app identifiable in your workflows
 
 ### **Step 2: Permissions Configuration**
