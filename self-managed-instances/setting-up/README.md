@@ -21,11 +21,19 @@ This guide walks you through setting up a self-managed instance of sfops in your
        - `repository`: **Read**
        - `package`: **Read**
 
-2. **GitHub Personal Access Token (Classic)**
+2. **GitHub Personal Access Token (Classic)** for `GHA_TOKEN`
+   
+   The built-in `GITHUB_TOKEN` cannot trigger workflows in other repositories or push packages. Create a PAT for:
+   - Deploying workflows to `sfops-gh-actions` and `sfops-dev-central` repositories  
+   - Publishing Docker images to GitHub Container Registry (ghcr.io)
+   - Creating pull requests for upstream synchronization
+   
+   **Steps:**
    - Go to GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
    - Click "Generate new token" → "Generate new token (classic)"
-   - Select scopes: `repo`, `packages:write`, and `workflow`
-   - **Note:** Use Classic tokens, not fine-grained tokens
+   - Select scopes: `repo`, `read:org`, `write:packages`, and `workflow`
+   - **Copy and save this token immediately** - you'll configure it as `GHA_TOKEN` in Step 4
+   - **Note:** Use Classic tokens, not fine-grained tokens. GitHub only shows the token once!
 
 ### Step-by-Step Setup Process
 
