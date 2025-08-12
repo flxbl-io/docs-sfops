@@ -63,13 +63,19 @@ The new GitHub projects are created at organization level, and requires organiza
 * In the 'General' section of your app's settings, locate the 'Private keys' subsection.
 * Click on "Generate a private key" and download the `.pem` file immediately to your secure location.
 
-### **Step 4: Installation of the App**
+### **Step 4: Configure Installation Settings**
 
-* Navigate to the 'Install App' tab within your app settings.
+* In the **Where can this GitHub App be installed?** section:
+  - Select **"Only on this account"** to restrict the app to your organization
+  - This ensures the app can only be installed within your organization
+
+### **Step 5: Installation of the App**
+
+* After creating the app, navigate to the 'Install App' tab within your app settings.
 * Click "Install" to initiate the installation process.
 * Select your organization and choose to install the app on all repositories or specific ones such as Salesforce repositories and `sfops-dev-central`.
 
-### **Step 5: Storing the Private Key and App ID as Secrets**
+### **Step 6: Storing the Private Key and App ID as Secrets**
 
 * Access your organization or repository settings and go to the 'Secrets' area.
 * Choose "New repository secret" or "New organization secret" for both the private key and App ID.
