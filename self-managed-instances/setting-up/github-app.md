@@ -33,27 +33,29 @@ You can refer to this link to understand how this work behind the scenes
 
 ### **Step 2: Permissions Configuration**
 
-* Assign the app permissions based on the requirements for sfops:
+Configure the following permissions for the sfops-bot app:
 
 #### Repository Permissions
+| Permission        | Access Level | Purpose                                                                                                                                        |
+|-------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Actions**       | Read & Write | Crucial for the app to manage GitHub Actions, which are integral to automation workflows                                                       |
+| **Contents**      | Read & Write | Manage code, branches, commits, and merges. This access allows the app to automate code integration processes                                  |
+| **Deployments**   | Read & Write | Empowers the app to manage deployments, essential for continuous delivery workflows                                                            |
+| **Environments**  | Read & Write | Create environments, which will be consumed by workflows                                                                                       |
+| **Issues**        | Read & Write | Enable the app to automate issue tracking, commenting, and labeling                                                                            |
+| **Projects**      | Read & Write | Allow the app to connect issues to projects for better project management                                                                      |
+| **Pull Requests** | Read & Write | Necessary for the app to automate the handling of pull requests, including merging and labeling                                                |
+| **Secrets**       | Read         | Lets the app manage secrets without compromising their security, essential for secure workflows                                                |
+| **Variables**     | Read & Write | Permit the app to read the variables in the repo. This is vital for dynamic configuration of the environment and branch related configurations |
+| **Workflows**     | Write        | Permit the app to update workflow files, which is vital for maintaining automated processes                                                    |
 
-* **Contents**: Set to read and write for the app to manage code, branches, commits, and merges. This access allows the app to automate code integration processes.
-* **Issues**: Read and write permissions enable the app to automate issue tracking, commenting, and labeling.
-* **Deployments**: Read and write access empowers the app to manage deployments, essential for continuous delivery workflows.
-* **Environments**: Read and write access to create environments, which will be consumed by workflows
-* **Pull Requests**: Read and write permissions are necessary for the app to automate the handling of pull requests, including merging and labeling.
-* **Actions**: Read and write access is crucial for the app to manage GitHub Actions, which are integral to automation workflows.
-* **Projects**: Read and write permissions allow the app to connect issues to projects for better project management.
-* **Secrets**: Read-only access lets the app manage secrets without compromising their security, essential for secure workflows.
-* **Variables:** Read and write permissions that permit the app to read the variables in the repo, This is vital for dynamic configuration of the environment and branch related configurations
-* **Workflows**: Read and write permissions permit the app to update workflow files, which is vital for maintaining automated processes.
-
-#### Organisation Permissions
-
-* **Projects**: Read and write permissions allow the app to connect issues to projects for better project management. \\
+#### Organization Permissions
+| Permission   | Access Level | Purpose                                                                   |
+|--------------|--------------|---------------------------------------------------------------------------|
+| **Projects** | Read & Write | Allow the app to connect issues to projects for better project management |
 
 {% hint style="info" %}
-The new GitHub projects are created at organisation level, and requires organisation permissions
+The new GitHub projects are created at organization level, and requires organization permissions
 {% endhint %}
 
 ### **Step 3: Generate and Secure a Private Key**
