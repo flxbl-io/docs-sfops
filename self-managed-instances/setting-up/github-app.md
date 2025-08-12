@@ -61,21 +61,29 @@ Configure the following permissions for the sfops-bot app:
 The new GitHub projects are created at organization level, and requires organization permissions
 {% endhint %}
 
-### **Step 3: Generate and Secure a Private Key**
-
-* In the 'General' section of your app's settings, locate the 'Private keys' subsection.
-* Click on "Generate a private key" and download the `.pem` file immediately to your secure location.
-
-### **Step 4: Configure Installation Settings**
+### **Step 3: Configure Installation Settings**
 
 * In the **Where can this GitHub App be installed?** section:
   - Select **"Only on this account"** to restrict the app to your organization
   - This ensures the app can only be installed within your organization
 
-### **Step 5: Installation of the App**
+### **Step 4: Create the GitHub App**
 
-* After creating the app, navigate to the 'Install App' tab within your app settings.
-* Click "Install" to initiate the installation process.
+* Click **"Create GitHub App"** at the bottom of the form
+* You'll be redirected to your new app's settings page
+* Note the **App ID** displayed at the top - you'll need this for the `SFOPSBOT_APP_ID` secret in Step 7
+
+### **Step 5: Generate Private Key**
+
+* On your app's settings page, scroll down to the **Private keys** section
+* Click **"Generate a private key"**
+* The `.pem` file will download automatically - save it securely
+* You'll need this file content for the `SFOPSBOT_APP_PRIVATE_KEY` secret in Step 7
+
+### **Step 6: Install the App**
+
+* Navigate to the 'Install App' tab within your app settings
+* Click **"Install"** to initiate the installation process
 * Select your organization and choose either:
   - **All repositories** (recommended for simplicity), or
   - **Selected repositories**: Include at minimum:
@@ -84,14 +92,15 @@ The new GitHub projects are created at organization level, and requires organiza
     - `sfops-dev-central`
     - Your Salesforce project repositories
 
-### **Step 6: Storing the Private Key and App ID as Secrets**
+### **Step 7: Store the Private Key and App ID as Secrets**
 
 * Store the secrets at the appropriate level:
   - **Organization secrets** (recommended): Available to all repositories in your org
   - **Repository secrets**: Store in the `sfops` repository if you prefer repo-level control
 * Navigate to Settings → Secrets and variables → Actions
-* Label the private key secret as `SFOPSBOT_APP_PRIVATE_KEY` and the App ID secret as `SFOPSBOT_APP_ID`.
-* Paste the contents of the private key file and the numerical App ID into their respective secrets.
+* Create two secrets:
+  - **`SFOPSBOT_APP_PRIVATE_KEY`**: Paste the entire contents of the `.pem` file from Step 5
+  - **`SFOPSBOT_APP_ID`**: Paste the App ID number from Step 4
 
 ####
 
