@@ -14,7 +14,7 @@ layout:
 
 # 2. Create a GitHub App
 
-This section deals with setting up a GitHub App which is required for sfops to function. sfops require additional permissions which allow to write into other repository such as 'sfops-dashboard' and also permission to trigger workflows etc. These permissions are beyond what is being provided by the built in GITHUB\_TOKEN. A Github App is recommended over using a Service Account and its Personal Access Token, as the service account takes an additional license and has limitations on the api requests.
+This section deals with setting up a GitHub App which is required for sfops to function. sfops require additional permissions which allow to write into other repository such as 'sfops-dev-central' and also permission to trigger workflows etc. These permissions are beyond what is being provided by the built in GITHUB\_TOKEN. A Github App is recommended over using a Service Account and its Personal Access Token, as the service account takes an additional license and has limitations on the api requests.
 
 This guide is crafted to facilitate the user to create a `sfops-bot` GitHub App to automate the worflows provided out of the box with sfops. It provides a step-by-step approach for creating the app, elaborating on the necessary permissions, installation, and secure storage of sensitive information.\
 \
@@ -65,7 +65,7 @@ The new GitHub projects are created at organisation level, and requires organisa
 
 * Navigate to the 'Install App' tab within your app settings.
 * Click "Install" to initiate the installation process.
-* Select your organization and choose to install the app on all repositories or specific ones such as Salesforce repositories and `sfops-dashboard`.
+* Select your organization and choose to install the app on all repositories or specific ones such as Salesforce repositories and `sfops-dev-central`.
 
 ### **Step 5: Storing the Private Key and App ID as Secrets**
 
