@@ -76,7 +76,13 @@ The new GitHub projects are created at organization level, and requires organiza
 
 * After creating the app, navigate to the 'Install App' tab within your app settings.
 * Click "Install" to initiate the installation process.
-* Select your organization and choose to install the app on all repositories or specific ones such as Salesforce repositories and `sfops-dev-central`.
+* Select your organization and choose either:
+  - **All repositories** (recommended for simplicity), or
+  - **Selected repositories**: Include at minimum:
+    - `sfops`
+    - `sfops-gh-actions` 
+    - `sfops-dev-central`
+    - Your Salesforce project repositories
 
 ### **Step 6: Storing the Private Key and App ID as Secrets**
 
