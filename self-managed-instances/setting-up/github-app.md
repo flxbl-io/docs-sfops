@@ -86,8 +86,10 @@ The new GitHub projects are created at organization level, and requires organiza
 
 ### **Step 6: Storing the Private Key and App ID as Secrets**
 
-* Access your organization or repository settings and go to the 'Secrets' area.
-* Choose "New repository secret" or "New organization secret" for both the private key and App ID.
+* Store the secrets at the appropriate level:
+  - **Organization secrets** (recommended): Available to all repositories in your org
+  - **Repository secrets**: Store in the `sfops` repository if you prefer repo-level control
+* Navigate to Settings → Secrets and variables → Actions
 * Label the private key secret as `SFOPSBOT_APP_PRIVATE_KEY` and the App ID secret as `SFOPSBOT_APP_ID`.
 * Paste the contents of the private key file and the numerical App ID into their respective secrets.
 
