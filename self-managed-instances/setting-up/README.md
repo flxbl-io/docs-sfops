@@ -38,9 +38,10 @@ This guide walks you through setting up a self-managed instance of sfops in your
      - ☑️ **repo** (Full control of private repositories)
      - ☑️ **workflow** (Update GitHub Action workflows)
      - ☑️ **write:packages** (Upload packages to GitHub Package Registry)
-     - ☑️ **read:org** (under admin:org section - Read org and team membership)
+     - Under **admin:org** → ☑️ **read:org** (Read org and team membership)
    - Click "Generate token" at the bottom of the page
    - **⚠️ IMPORTANT:** Copy the token immediately! GitHub only shows it once
+   - If your organization uses SSO: Click **"Configure SSO"** next to your new token and authorize it for your organization
    - **Keep this browser tab open** until you've configured the token as `GHA_TOKEN` in Step 4
 
 ### Step-by-Step Setup Process
