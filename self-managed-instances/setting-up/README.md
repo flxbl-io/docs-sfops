@@ -29,11 +29,19 @@ This guide walks you through setting up a self-managed instance of sfops in your
    - Creating pull requests for upstream synchronization
    
    **Steps:**
-   - Go to GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
+   - Navigate to: GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
+     - Direct URL: `https://github.com/settings/tokens`
    - Click "Generate new token" → "Generate new token (classic)"
-   - Select scopes: `repo`, `read:org`, `write:packages`, and `workflow`
-   - **Copy and save this token immediately** - you'll configure it as `GHA_TOKEN` in Step 4
-   - **Note:** Use Classic tokens, not fine-grained tokens. GitHub only shows the token once!
+   - Add a descriptive note: e.g., "sfops GHA_TOKEN"
+   - Set expiration based on your security requirements
+   - Select the following scopes:
+     - ☑️ **repo** (Full control of private repositories)
+     - ☑️ **workflow** (Update GitHub Action workflows)
+     - ☑️ **write:packages** (Upload packages to GitHub Package Registry)
+     - ☑️ **read:org** (under admin:org section - Read org and team membership)
+   - Click "Generate token" at the bottom of the page
+   - **⚠️ IMPORTANT:** Copy the token immediately! GitHub only shows it once
+   - **Keep this browser tab open** until you've configured the token as `GHA_TOKEN` in Step 4
 
 ### Step-by-Step Setup Process
 
