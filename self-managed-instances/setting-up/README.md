@@ -35,7 +35,8 @@ This guide walks you through setting up a self-managed instance of sfops in your
 
 Use GitHub's import feature for a quick setup:
 
-1. Go to [https://github.com/new/import](https://github.com/new/import)
+1. Navigate to: **New repository → Import a repository**
+   - Direct URL: `https://github.com/new/import`
 2. Enter repository URL: `https://source.flxbl.io/flxbl/sfops.git`
 3. For authentication:
    - Username: Your Gitea username
@@ -88,9 +89,10 @@ Ensure the following repositories exist in your GitHub organization:
 #### Step 3: Configure GitHub App
 
 Create a GitHub App (`sfops-bot`) for authentication and enhanced permissions:
-- Go to your GitHub org → Settings → Developer settings → GitHub Apps → New GitHub App
+- Navigate to: **GitHub org → Settings → Developer settings → GitHub Apps → New GitHub App**
+  - Direct URL: `https://github.com/organizations/YOUR_ORG/settings/apps/new`
 - Name: `sfops-bot`
-- Configure repository permissions (Contents, Issues, Pull Requests, Actions, etc.)
+- Configure permissions (see detailed guide for full list - includes Contents, Actions, Workflows, etc.)
 - Generate and save the private key (`.pem` file)
 - Note the App ID for later use
 

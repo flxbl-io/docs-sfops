@@ -87,7 +87,7 @@ The new GitHub projects are created at organization level, and requires organiza
 
 ### **Step 6: Collect App Credentials and Store as Secrets**
 
-#### Collect the required credentials:
+#### Collect the required credentials (from Step 4's settings page):
 1. **App ID**: Note the App ID displayed at the top of your app's settings page
 2. **Private Key**: 
    - Scroll down to the **Private keys** section on your app's settings page
@@ -100,8 +100,8 @@ The new GitHub projects are created at organization level, and requires organiza
   - **Organization secrets** (recommended): Available to all repositories in your org
   - **Repository secrets**: Scoped to just the `sfops` repository
 * Create two secrets:
-  - **`SFOPSBOT_APP_PRIVATE_KEY`**: Paste the entire contents of the downloaded `.pem` file
   - **`SFOPSBOT_APP_ID`**: Paste the App ID number from the settings page
+  - **`SFOPSBOT_APP_PRIVATE_KEY`**: Paste the entire contents of the downloaded `.pem` file
 
 ####
 
