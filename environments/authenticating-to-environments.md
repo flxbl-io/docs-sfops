@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Authenticating to Environments
 
 Environments in sfops are authenticated using the credentials stored in Github. This section describes the various mechanisms used for authenticating environments

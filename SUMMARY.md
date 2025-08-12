@@ -31,10 +31,8 @@
 
 * [November24](changelog/november24.md)
 * [January25](changelog/january25.md)
-
-***
-
-* [May25](may25.md)
+* [May25](changelog/may25.md)
+* [August25](changelog/august25.md)
 
 ## DevCentral
 
