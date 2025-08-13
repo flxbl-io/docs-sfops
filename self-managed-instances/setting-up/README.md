@@ -108,16 +108,9 @@ Ensure the following repositories exist in your GitHub organization:
 
 #### Step 3: Configure GitHub App
 
-Create a GitHub App (`sfops-bot`) for authentication and enhanced permissions:
+Create a GitHub App (sfops-bot) to enable cross-repository operations and avoid PAT limitations. The app provides secure authentication for syncing workflows, managing deployments, and automating issue tracking.
 
-* Navigate to: **GitHub org → Settings → Developer settings → GitHub Apps → New GitHub App**
-  * Direct URL: `https://github.com/organizations/YOUR_ORG/settings/apps/new`
-* Name: `sfops-bot`
-* Configure permissions (see detailed guide for full list - includes Contents, Actions, Workflows, etc.)
-* Generate and save the private key (`.pem` file)
-* Note the App ID for later use
-
-[→ Detailed GitHub App configuration](github-app.md)
+[→ GitHub App configuration](github-app.md)
 
 #### Step 4: Configure Secrets and Variables
 

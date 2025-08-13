@@ -26,9 +26,9 @@ You can refer to this link to understand how this work behind the scenes
 
 ### **Step 1: Registration of sfops-bot GitHub App**
 
-* Navigate to your GitHub organization's settings.
-* Click on "Developer settings" and select "GitHub Apps".
-* Hit "New GitHub App" and configure:
+* Navigate to: **GitHub org → Settings → Developer settings → GitHub Apps → New GitHub App**
+  * Direct URL: `https://github.com/organizations/YOUR_ORG/settings/apps/new`
+* Configure the app:
   - **GitHub App name**: `sfops-bot`
   - **Homepage URL**: `https://github.com/YOUR_ORG/sfops` (or your organization URL)
   - **Webhook**: Uncheck "Active" (webhooks are not needed for sfops-bot)
