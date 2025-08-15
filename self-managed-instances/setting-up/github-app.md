@@ -42,6 +42,7 @@ Configure the following permissions for the sfops-bot app:
 | Permission        | Access Level | Purpose                                                                                                                                        |
 |-------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Actions**       | Read & Write | Crucial for the app to manage GitHub Actions, which are integral to automation workflows                                                       |
+| **Checks**        | Read & Write | Required for reading check runs and status checks on commits, essential for PR status reporting                                                |
 | **Contents**      | Read & Write | Manage code, branches, commits, and merges. This access allows the app to automate code integration processes                                  |
 | **Deployments**   | Read & Write | Empowers the app to manage deployments, essential for continuous delivery workflows                                                            |
 | **Environments**  | Read & Write | Create environments, which will be consumed by workflows                                                                                       |
@@ -84,6 +85,18 @@ The new GitHub projects are created at organization level, and requires organiza
     - `sfops-gh-actions` 
     - `sfops-dev-central`
     - Your Salesforce project repositories
+
+{% hint style="warning" %}
+**Important**: After installing the app, if you update permissions later (e.g., adding Checks permission), you must accept the new permissions:
+
+1. Go to any repository where the app is installed (e.g., your project repository)
+2. Navigate to: **Repository Settings** → **Integrations** → **Installed GitHub Apps**
+3. Click on your sfops-bot app - this will redirect you to the organization-level configuration
+4. Review and **accept any pending permission requests**
+5. The updated permissions will apply to all repositories where the app is installed
+
+Direct URL: `https://github.com/YOUR_ORG/YOUR_REPO/settings/installations`
+{% endhint %}
 
 ### **Step 6: Collect App Credentials and Store as Secrets**
 
