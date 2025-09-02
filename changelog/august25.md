@@ -237,4 +237,29 @@ gh variable set SFP_SERVER_URL --body "https://sfp.myorg.com"
 gh secret set SFP_SERVER_TOKEN
 ```
 
-**3**
+**3. Update Secrets**
+
+```bash
+# Add new required secrets
+gh secret set SFP_SERVER_TOKEN
+```
+
+### 🆕 Functional Changes (v31.5.2)
+
+[View Changelog](https://source.flxbl.io/flxbl/sfops/releases/tag/v31.5.2)
+
+#### 🐛 Bug Fixes
+
+**Workflow & Authentication Fixes**
+
+* **Action Case Sensitivity**: Fixed case conversion issue in setup-npm-registry action for consistent lowercase npm registry scopes
+* **NPM Scope Configuration**: Removed hardcoded npm scope from release workflows
+* **Registry Authentication**: Temporary rollback to previous auth mechanism
+
+#### ⚠️ Breaking Changes
+
+* None - This is a patch release with backward compatibility maintained
+
+#### 📋 Migration Guide
+
+No migration required. This patch release can be safely adopted without any configuration changes.
