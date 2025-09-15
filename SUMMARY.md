@@ -33,6 +33,7 @@
 * [January25](changelog/january25.md)
 * [May25](changelog/may25.md)
 * [August25](changelog/august25.md)
+* [October25](changelog/october25.md)
 
 ## DevCentral
 
