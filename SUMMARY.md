@@ -27,14 +27,6 @@
   * [Release a Domain](issueops/release/release-a-domain.md)
   * [Hotfix Workflow](issueops/release/hotfix-workflow.md)
 
-## Changelog
-
-* [November 24](changelog/november24.md)
-* [January 25](changelog/january25.md)
-* [May 25](changelog/may25.md)
-* [August 25](changelog/august25.md)
-* [September 25](changelog/october25.md)
-
 ## DevCentral
 
 * [Customising Menu](devcentral/customising-menu.md)
@@ -56,6 +48,14 @@
   * [Updating to v29.0.0](self-managed-instances/update-instructions/updating-to-v29.0.0.md)
 * [Workflow details](self-managed-instances/workflow-details/README.md)
   * [Sync Upstream Repository and Create Pull Request](self-managed-instances/workflow-details/sync-upstream-repository-and-create-pull-request.md)
+
+## Changelog
+
+* [November 24](changelog/november24.md)
+* [January 25](changelog/january25.md)
+* [May 25](changelog/may25.md)
+* [August 25](changelog/august25.md)
+* [September 25](changelog/october25.md)
 
 ***
 
