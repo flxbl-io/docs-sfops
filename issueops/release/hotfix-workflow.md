@@ -1,8 +1,8 @@
 # Hotfix Workflow
 
-This section explains how a hotfix if required could be applied in the context of sfops. These workflows automate the process of patching an existing active branch (e.g. main), to create a dynamic release branch for applying your pathches.
+This section explains how a hotfix if required could be applied in the context of sfops. These workflows automate the process of patching an existing active branch (e.g. main), to create a dynamic release branch for applying your patches.
 
-This process could be used for an accelerated delivery to release changes to **RELEASE** environments
+This process could be used for an accelerated delivery to release changes to **RELEASE** environments. As of v31.6.0, hotfixes can now be initiated directly from release candidates in DevCentral, not just from completed releases
 
 {% hint style="danger" %}
 Please note hotfix is an anti-pattern and should not be used. We only advise this feature for teams who are on their journey to continuous deployment
@@ -13,6 +13,8 @@ Please note hotfix is an anti-pattern and should not be used. We only advise thi
 #### Step 1: Activate Apply a Patch action in sfops dev central
 
 <figure><img src="../../.gitbook/assets/hotfix.png" alt=""><figcaption><p>Click on Attempt a Patch</p></figcaption></figure>
+
+Starting from v31.6.0, you can now initiate hotfixes directly from release candidates, not just from completed releases. This provides more flexibility in emergency situations.
 
 sfops will attempt to patch the branch which the release candidate was created on by resetting the commits to the exact stage where the candidate was created. This is only applied on the selected domain. If there are multiple domain, please proceed each one individually.
 
