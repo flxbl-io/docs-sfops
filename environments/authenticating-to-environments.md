@@ -33,7 +33,7 @@ Please note, when a sandbox is refreshed from the UI, irrespective of whether th
 
 sfops supports two authentication methods for daily test runs:
 - **GitHub Secrets Based**: For organizations using GitHub environments
-- **SFP Server Based**: For organizations with SFP Server integration
+- **sfp server Based**: For organizations with sfp server integration
 {% endhint %}
 
 #### GitHub Secrets Based Authentication
@@ -62,6 +62,13 @@ If you have a sandbox with a custom name (e.g., "myawesomestagingorg"), you must
 This limitation exists because the workflow cannot dynamically pass arbitrary secrets, and only the predefined environment names are configured.
 {% endhint %}
 
+**Selecting Which Environments to Test**
+
+For GitHub secrets based authentication, environments are selected based on GitHub environment variables:
+1. Create GitHub environments with one of the supported names (STAGING, SIT, PREPROD, UAT, QA, IQA)
+2. Add a variable `TESTRUN=true` to each environment you want to include in daily test runs
+3. The workflow will automatically discover and test all environments with `TESTRUN=true`
+
 {% hint style="warning" %}
 **Remember to update your project workflow**
 
@@ -83,19 +90,44 @@ apex-test-runs:
     NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-#### SFP Server Based Authentication
+#### sfp server Based Authentication
 
-For SFP Server based daily test runs:
-- Authentication is managed centrally through SFP Server
+For sfp server based daily test runs:
+- Authentication is managed centrally through sfp server
 - No need for individual environment secrets in GitHub
 - Supports any environment name without restrictions
-- Auth URLs are stored and retrieved dynamically from SFP Server
+- Auth URLs are stored and retrieved dynamically from sfp server
 
 {% hint style="success" %}
-**No naming restrictions with SFP Server**
+**No naming restrictions with sfp server**
 
-SFP Server removes the environment naming limitations. You can use any sandbox name and the authentication will work seamlessly for daily test runs.
+sfp server removes the environment naming limitations. You can use any sandbox name and the authentication will work seamlessly for daily test runs.
 {% endhint %}
+
+**Selecting Which Environments to Test**
+
+The workflow automatically tests all environments that have the metadata `testrun: true` set in the sfp server.
+
+To configure which environments are included in daily test runs, you have three options:
+
+1. **Using codev**: Manage environments through the graphical interface in codev desktop application
+
+2. **Using sfp CLI**: Create environments with `--metadata '{"testrun": "true"}'`
+   See [sfp Environment documentation](https://docs.flxbl.io/sfp/cli-reference/server/environment) for complete CLI reference.
+
+3. **Using sfp server REST API**: Update environment metadata directly via API
+```bash
+# Update existing environment metadata via REST API
+curl -X PATCH https://your-sfp-server.com/environments/{environmentId} \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{"metadata": {"testrun": "true"}}'
+```
+
+To view which environments will be tested:
+```bash
+sfp server environment list --repository <owner/repo> --metadata "testrun=true"
+```
 
 Example daily test workflow configuration:
 ```yaml
@@ -106,4 +138,6 @@ apex-test-runs:
   secrets:
     DEVHUB_SFDX_AUTH_URL: ${{ secrets.DEVHUB_SFDX_AUTH_URL }}
     SFP_SERVER_TOKEN: ${{ secrets.SFP_SERVER_TOKEN }}
+# This workflow will automatically run tests on all environments
+# with metadata testrun=true (e.g., my-awesome-staging-org, my-awesome-uat-org)
 ```
