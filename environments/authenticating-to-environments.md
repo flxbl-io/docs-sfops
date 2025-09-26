@@ -17,13 +17,31 @@ If your Production org is different from your DevHub (less common), you need to:
 
 ### Authenticating to Other Environments
 
-Authenticating to any other environments backed by a sandbox depends on how the sandbox is being created. Choose the appropriate method below:
+Authenticating to any other environments backed by a sandbox depends on how the sandbox is being created. The authentication mechanism will use the sandbox name to connect, which can be configured in two ways:
+
+#### Sandbox Name Configuration
+
+The authentication layer needs to know the sandbox name. This is determined as follows:
+
+**When to set SBXNAME variable:**
+- **Required**: Create `SBXNAME` variable in your GitHub environment if the environment name differs from the actual Salesforce sandbox name
+- **Not needed**: Skip this if your GitHub environment name matches the sandbox name exactly
+
+**Examples:**
+- GitHub environment "STAGING" with Salesforce sandbox "staging" → No `SBXNAME` needed
+- GitHub environment "UAT" with Salesforce sandbox "uat" → No `SBXNAME` needed
+- GitHub environment "STAGING" with Salesforce sandbox "stg-sandbox-01" → Set `SBXNAME=stg-sandbox-01`
+- GitHub environment "QA" with Salesforce sandbox "qa-refresh-nov" → Set `SBXNAME=qa-refresh-nov`
+
+For complete details on setting up GitHub environments, see [Creating an Environment](creating-an-environment.md).
+
+---
+
+Choose the appropriate authentication method based on how your sandbox was created:
 
 #### Option 1: Sandboxes created by the DevHub user configured in GitHub
 
-Sandboxes created by the DevHub user (the CI/CD user authenticated via DEVHUB_SFDX_AUTH_URL) can be authenticated by using the sandbox name. All that is required is setting up the SBX\_NAME variable in the environment as shown below:
-
-<figure><img src="../.gitbook/assets/EnvVarsSandbox.png" alt=""><figcaption><p>Use of SBX_NAME in Authentication</p></figcaption></figure>
+Sandboxes created by the DevHub user (the CI/CD user authenticated via DEVHUB_SFDX_AUTH_URL) can be authenticated automatically using the sandbox name configured above. No additional secrets are required.
 
 {% hint style="danger" %}
 Please note, when a sandbox is refreshed from the UI, irrespective of whether the action was done by the same user configured in Github, sfops will not be able to authenticate to this environment, and you will need to provide SB\_SFDX\_AUTH\_URL as mentioned in Option 2.
@@ -45,7 +63,18 @@ Daily test runs require special authentication configuration for organizations u
 
 #### GitHub Secrets Based Authentication (sfp community / sfp pro without server)
 
-For GitHub secrets based daily test runs, you need to:
+For GitHub secrets based daily test runs, authentication requirements depend on how your sandboxes were created:
+
+##### For sandboxes created by the DevHub user (Option 1 above)
+
+If your sandboxes were created by the DevHub user configured in GitHub:
+- You do **NOT** need to add any `*_SFDX_AUTH_URL` repository secrets
+- Authentication happens automatically through the DevHub connection
+- Only set `SBXNAME` variable if your GitHub environment name differs from the actual sandbox name (see Sandbox Name Configuration section above)
+
+##### For sandboxes NOT created by the DevHub user (Option 2 above)
+
+If your sandboxes were created by other users or refreshed via UI, you need to:
 
 1. **Add repository secrets** for each environment using the exact format: `<ENVIRONMENT_NAME>_SFDX_AUTH_URL`
 2. **Pass these secrets** in your daily test workflow
