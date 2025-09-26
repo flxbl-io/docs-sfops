@@ -62,15 +62,25 @@ If you have a sandbox with a custom name (e.g., "myawesomestagingorg"), you must
 This limitation exists because the workflow cannot dynamically pass arbitrary secrets, and only the predefined environment names are configured.
 {% endhint %}
 
+{% hint style="warning" %}
+**Remember to update your project workflow**
+
+If you use any of the supported environments (STAGING, SIT, PREPROD, UAT, QA, IQA), you must update your `sfops-cron-daily-quality-test.yml` workflow to include the corresponding auth URL secret in the secrets section.
+{% endhint %}
+
 Example daily test workflow configuration:
 ```yaml
 apex-test-runs:
   uses: ./.github/workflows/apex-test-on-test-envs.yml@main
   secrets:
     DEVHUB_SFDX_AUTH_URL: ${{ secrets.DEVHUB_SFDX_AUTH_URL }}
-    STAGING_SFDX_AUTH_URL: ${{ secrets.STAGING_SFDX_AUTH_URL }}
-    UAT_SFDX_AUTH_URL: ${{ secrets.UAT_SFDX_AUTH_URL }}
-    # Only the predefined environment names work here
+    STAGING_SFDX_AUTH_URL: ${{ secrets.STAGING_SFDX_AUTH_URL }}  # Add if you have STAGING environment
+    UAT_SFDX_AUTH_URL: ${{ secrets.UAT_SFDX_AUTH_URL }}          # Add if you have UAT environment
+    # Add other environment secrets as needed
+    DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
+    DATADOG_HOST: ${{ secrets.DATADOG_HOST }}
+    SFOPSBOT_APP_PRIVATE_KEY: ${{ secrets.SFOPSBOT_APP_PRIVATE_KEY }}
+    NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 #### SFP Server Based Authentication
@@ -97,5 +107,3 @@ apex-test-runs:
     DEVHUB_SFDX_AUTH_URL: ${{ secrets.DEVHUB_SFDX_AUTH_URL }}
     SFP_SERVER_TOKEN: ${{ secrets.SFP_SERVER_TOKEN }}
 ```
-
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
