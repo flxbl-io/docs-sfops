@@ -1,6 +1,6 @@
 ---
-description: Configure authentication for environments and daily test runs including apex tests, quality tests, and automated testing workflows
-keywords: [authentication, environments, daily test runs, apex tests, quality tests, automated testing, sandbox authentication, GitHub secrets, sfp server, test environments, SFDX auth URL, daily quality test, apex daily test, test run authentication]
+description: Configure authentication for environments in sfops workflows including production, sandboxes, and automated deployments
+keywords: [authentication, environments, sandbox authentication, production authentication, GitHub secrets, sfp server, SFDX auth URL, DEVHUB_SFDX_AUTH_URL, environment secrets, CI/CD authentication, deployment authentication, release authentication, daily test runs, apex tests, quality tests]
 ---
 
 # Authenticating to Environments
@@ -37,15 +37,13 @@ To authenticate a sandbox that was not created by the DevHub user configured in 
 
 <figure><img src="../.gitbook/assets/EnvSecretsSandbox.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-**Authentication Methods for Daily Test Runs**
+---
 
-sfops supports two authentication methods for daily test runs:
-- **GitHub Secrets Based**: For organizations using GitHub environments
-- **sfp server Based**: For organizations with sfp server integration
-{% endhint %}
+### Authentication for Daily Test Runs
 
-#### GitHub Secrets Based Authentication
+Daily test runs require special authentication configuration for organizations using **sfp Community Edition** or **sfp Pro without sfp server**. Organizations that have fully onboarded to **sfp Pro with sfp server** can skip the GitHub secrets configuration and use the simpler server-based approach.
+
+#### GitHub Secrets Based Authentication (sfp Community Edition / sfp Pro without server)
 
 For GitHub secrets based daily test runs, you need to:
 
@@ -99,7 +97,7 @@ apex-test-runs:
     NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-#### sfp server Based Authentication
+#### sfp server Based Authentication (sfp Pro with server)
 
 For sfp server based daily test runs:
 - Authentication is managed centrally through sfp server
