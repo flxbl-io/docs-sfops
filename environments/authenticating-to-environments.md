@@ -123,6 +123,7 @@ curl -X PATCH https://your-sfp-server.com/environments/{environmentId} \
   -H "Content-Type: application/json" \
   -d '{"metadata": {"testrun": "true"}}'
 ```
+   See [sfp server API documentation](https://docs.flxbl.io/flxbl/sfp-server/api-reference/environments) for complete API reference.
 
 To view which environments will be tested:
 ```bash
