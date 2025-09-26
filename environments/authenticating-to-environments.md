@@ -40,16 +40,19 @@ sfops supports two authentication methods for daily test runs:
 
 For GitHub secrets based daily test runs, you need to:
 
-1. **Add repository secrets** for each environment: `<ENVIRONMENT_NAME>_SFDX_AUTH_URL`
+1. **Add repository secrets** for each environment using the exact format: `<ENVIRONMENT_NAME>_SFDX_AUTH_URL`
 2. **Pass these secrets** in your daily test workflow
 
-**Important Limitation**: Due to how GitHub Actions handles secrets in reusable workflows, **only these specific environment names are supported**:
-* **STAGING**
-* **SIT**
-* **PREPROD**
-* **UAT**
-* **QA**
-* **IQA**
+**Important Limitation**: Due to how GitHub Actions handles secrets in reusable workflows, **only these specific environment names and their corresponding secrets are supported**:
+
+| GitHub Environment Name | Required Repository Secret |
+|-------------------------|----------------------------|
+| **STAGING**             | `STAGING_SFDX_AUTH_URL`    |
+| **SIT**                 | `SIT_SFDX_AUTH_URL`        |
+| **PREPROD**             | `PREPROD_SFDX_AUTH_URL`    |
+| **UAT**                 | `UAT_SFDX_AUTH_URL`        |
+| **QA**                  | `QA_SFDX_AUTH_URL`         |
+| **IQA**                 | `IQA_SFDX_AUTH_URL`        |
 
 {% hint style="warning" %}
 **Custom environment names are not supported in automated workflows**
