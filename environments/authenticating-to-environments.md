@@ -28,17 +28,71 @@ Please note, when a sandbox is refreshed from the UI, irrespective of whether th
 
 <figure><img src="../.gitbook/assets/EnvSecretsSandbox.png" alt=""><figcaption></figcaption></figure>
 
-If the environment is used assigned to '**release**' category or has been assigned 'test' (daily test run), you also need to set up additional variable `<NAME_OF_THE_ENVIRONMENT>_SFDX_AUTH_URL` as repository secret.  (This is due to a limitation where secrets of the environment cant be acessed without approvals and hence can block automations which require to be run without intervention)\
-\
-The name of the environments that are supported for this mode should be one of the following
+{% hint style="info" %}
+**Authentication Methods for Daily Test Runs**
 
-* &#x20;STAGING,
-* SIT
-* &#x20;PREPROD
-* UAT
-* QA
-* IQA&#x20;
-* SIT\
+sfops supports two authentication methods for daily test runs:
+- **GitHub Secrets Based**: For organizations using GitHub environments
+- **SFP Server Based**: For organizations with SFP Server integration
+{% endhint %}
 
+#### GitHub Secrets Based Authentication
+
+For GitHub secrets based daily test runs, you need to:
+
+1. **Add repository secrets** for each environment: `<ENVIRONMENT_NAME>_SFDX_AUTH_URL`
+2. **Pass these secrets** in your daily test workflow
+
+**Important Limitation**: Due to how GitHub Actions handles secrets in reusable workflows, **only these specific environment names are supported**:
+* **STAGING**
+* **SIT**
+* **PREPROD**
+* **UAT**
+* **QA**
+* **IQA**
+
+{% hint style="warning" %}
+**Custom environment names are not supported in automated workflows**
+
+If you have a sandbox with a custom name (e.g., "myawesomestagingorg"), you must rename it to one of the supported names above (e.g., "STAGING") for daily test runs to work.
+
+This limitation exists because the workflow cannot dynamically pass arbitrary secrets, and only the predefined environment names are configured.
+{% endhint %}
+
+Example daily test workflow configuration:
+```yaml
+apex-test-runs:
+  uses: ./.github/workflows/apex-test-on-test-envs.yml@main
+  secrets:
+    DEVHUB_SFDX_AUTH_URL: ${{ secrets.DEVHUB_SFDX_AUTH_URL }}
+    STAGING_SFDX_AUTH_URL: ${{ secrets.STAGING_SFDX_AUTH_URL }}
+    UAT_SFDX_AUTH_URL: ${{ secrets.UAT_SFDX_AUTH_URL }}
+    # Only the predefined environment names work here
+```
+
+#### SFP Server Based Authentication
+
+For SFP Server based daily test runs:
+- Authentication is managed centrally through SFP Server
+- No need for individual environment secrets in GitHub
+- Supports any environment name without restrictions
+- Auth URLs are stored and retrieved dynamically from SFP Server
+
+{% hint style="success" %}
+**No naming restrictions with SFP Server**
+
+SFP Server removes the environment naming limitations. You can use any sandbox name and the authentication will work seamlessly for daily test runs.
+{% endhint %}
+
+Example daily test workflow configuration:
+```yaml
+apex-test-runs:
+  uses: ./.github/workflows/apex-test-on-test-envs-v2.yml@main
+  with:
+    sfp-server-url: ${{ vars.SFP_SERVER_URL }}
+  secrets:
+    DEVHUB_SFDX_AUTH_URL: ${{ secrets.DEVHUB_SFDX_AUTH_URL }}
+    SFP_SERVER_TOKEN: ${{ secrets.SFP_SERVER_TOKEN }}
+```
 
 <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
