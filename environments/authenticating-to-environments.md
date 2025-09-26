@@ -1,3 +1,8 @@
+---
+description: Configure authentication for environments and daily test runs including apex tests, quality tests, and automated testing workflows
+keywords: [authentication, environments, daily test runs, apex tests, quality tests, automated testing, sandbox authentication, GitHub secrets, sfp server, test environments, SFDX auth URL, daily quality test, apex daily test, test run authentication]
+---
+
 # Authenticating to Environments
 
 Environments in sfops are authenticated using the credentials stored in Github. This section describes the various mechanisms used for authenticating environments
