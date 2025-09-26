@@ -9,27 +9,31 @@ Environments in sfops are authenticated using the credentials stored in Github. 
 
 ### Authenticating to Production Environment
 
-If your dev hub and production is on the same org, you do not have to create any additional secrets in the Github Environment 'PROD'. If its different, you need to create a new environment secret titled 'SFDX\_AUTH\_URL' and add the equivalent value.
+If your DevHub and Production are the same org (typical for most organizations), authentication uses the existing `DEVHUB_SFDX_AUTH_URL` secret - no additional configuration needed.
+
+If your Production org is different from your DevHub (less common), you need to:
+1. Create a GitHub Environment named 'PROD'
+2. Add an environment secret titled `SFDX_AUTH_URL` with the Production org's auth URL value
 
 ### Authenticating to Other Environments
 
-Authenticating to any other environments backed by a sandbox, depends on how the sandbox is being created\
-\
-1\. **Sandboxes created by same production user configured in GitHub**
+Authenticating to any other environments backed by a sandbox depends on how the sandbox is being created. Choose the appropriate method below:
 
-Sandboxes created by the same production user can be authenticated by using the sandbox name, all that is required is the use of setting up the SBX\_NAME variable in environment as shown below\\
+#### Option 1: Sandboxes created by the DevHub user configured in GitHub
+
+Sandboxes created by the DevHub user (the CI/CD user authenticated via DEVHUB_SFDX_AUTH_URL) can be authenticated by using the sandbox name. All that is required is setting up the SBX\_NAME variable in the environment as shown below:
 
 <figure><img src="../.gitbook/assets/EnvVarsSandbox.png" alt=""><figcaption><p>Use of SBX_NAME in Authentication</p></figcaption></figure>
 
 {% hint style="danger" %}
-Please note, when a sandbox is refreshed from the UI, irrespective of whether the action was done by the same user configured in Github, sfops will not be able to authenticate to this environment, and you will need to provide SB\_SFDX\_AUTH\_URL as mentioned in #2.
+Please note, when a sandbox is refreshed from the UI, irrespective of whether the action was done by the same user configured in Github, sfops will not be able to authenticate to this environment, and you will need to provide SB\_SFDX\_AUTH\_URL as mentioned in Option 2.
 {% endhint %}
 
-2. **Sandboxes created by any other users in production**\
-   \
-   To authenticate a sandbox that was not created by the configured user in Github, one needs to provide a environment secret **SB\_SFDX\_AUTH\_URL** which can be obtained by using the instructions[ here.](https://docs.flxbl.io/sfp/pools/setting-up-your-salesforce-org-for-scratch-org-pools#generate-sfdx-auth-url-for-pipeline-authentication)
+---
 
+#### Option 2: Sandboxes created by any other users in production
 
+To authenticate a sandbox that was not created by the DevHub user configured in GitHub (the CI/CD user authenticated via DEVHUB_SFDX_AUTH_URL), one needs to provide an environment secret **SB\_SFDX\_AUTH\_URL** which can be obtained by using the instructions [here.](https://docs.flxbl.io/sfp/pools/setting-up-your-salesforce-org-for-scratch-org-pools#generate-sfdx-auth-url-for-pipeline-authentication)
 
 <figure><img src="../.gitbook/assets/EnvSecretsSandbox.png" alt=""><figcaption></figcaption></figure>
 
