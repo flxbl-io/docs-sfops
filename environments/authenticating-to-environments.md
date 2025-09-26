@@ -41,9 +41,9 @@ To authenticate a sandbox that was not created by the DevHub user configured in 
 
 ### Authentication for Daily Test Runs
 
-Daily test runs require special authentication configuration for organizations using **sfp Community Edition** or **sfp Pro without sfp server**. Organizations that have fully onboarded to **sfp Pro with sfp server** can skip the GitHub secrets configuration and use the simpler server-based approach.
+Daily test runs require special authentication configuration for organizations using **sfp community** or **sfp pro without sfp server**. Organizations that have fully onboarded to **sfp pro with sfp server** can skip the GitHub secrets configuration and use the simpler server-based approach.
 
-#### GitHub Secrets Based Authentication (sfp Community Edition / sfp Pro without server)
+#### GitHub Secrets Based Authentication (sfp community / sfp pro without server)
 
 For GitHub secrets based daily test runs, you need to:
 
@@ -97,7 +97,7 @@ apex-test-runs:
     NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-#### sfp server Based Authentication (sfp Pro with server)
+#### sfp server Based Authentication (sfp pro with server)
 
 For sfp server based daily test runs:
 - Authentication is managed centrally through sfp server
