@@ -14,3 +14,7 @@ _book
 *.epub
 *.mobi
 *.pdf
+
+
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md
