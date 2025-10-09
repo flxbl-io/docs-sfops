@@ -6,12 +6,12 @@ As the official workflows for Flxbl on GitHub, sfops provides battle-tested, opi
 
 ## Why GitHub? Why sfops?
 
-If you're evaluating Salesforce DevOps platforms like Gearset or Copado, here's what makes sfops different: **it runs entirely on GitHub.**
+**sfops runs entirely on GitHub.** No separate platforms, no external UIs—just GitHub doing what it does best.
 
-- **No proprietary platform**: Everything happens in GitHub—no separate UI to learn, no external orchestration layer
-- **No vendor lock-in**: Your workflows are GitHub Actions you control. Modify them, extend them, or replace them—they're yours
-- **GitHub-native architecture**: Orchestration runs entirely on GitHub Actions, with optional sfp server for state persistence
-- **Native developer experience**: Developers stay in GitHub for code, PRs, issues, and deployments. No context switching to external platforms
+- **GitHub-native architecture**: Orchestration runs entirely on GitHub Actions, with sfp server for state persistence
+- **Source-available workflows**: All workflows and actions are visible and modifiable under Flxbl's source-available license
+- **Single developer experience**: Code, PRs, issues, CI/CD, and deployments—all in GitHub. No context switching
+- **Full transparency**: See exactly what's running in your pipelines—no black box deployments or hidden logic
 
 sfops delivers battle-tested Salesforce DevOps so you don't have to build it yourself:
 
