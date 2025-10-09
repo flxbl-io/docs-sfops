@@ -2,7 +2,7 @@
 
 **sfops** is the definitive GitHub-native implementation of the [Flxbl framework](https://flxbl.io) for Salesforce. It delivers production-ready workflows, IssueOps automation, and developer-centric tooling that you can deploy immediately—no need to build your own CI/CD or wrestle with GitHub Actions from scratch.
 
-As the official workflow engine for Flxbl, sfops provides battle-tested, opinionated workflows that handle the complexity of Salesforce ALM on GitHub. Instead of reinventing the wheel with custom actions and workflows, you get proven patterns that work out of the box—refined through real-world enterprise implementations.
+As the official workflows for Flxbl on GitHub, sfops provides battle-tested, opinionated implementations that handle the complexity of Salesforce ALM. Instead of reinventing the wheel with custom actions and workflows, you get proven patterns that work out of the box—refined through real-world enterprise implementations.
 
 ## Why sfops?
 
