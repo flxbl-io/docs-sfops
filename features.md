@@ -1,20 +1,28 @@
 ---
 description: >-
-  sfops features a comprehensive list of features that makes ALM-related process
-  a breeze in your Salesforce project.
+  sfops delivers enterprise-grade Salesforce DevOps through opinionated,
+  GitHub-native workflows that embody Flxbl best practices.
 ---
 
 # Features
 
-sfops is built on top of [sfp](https://app.gitbook.com/o/fKx1Ub4x8BCvXSpvO1Hz/s/YLI5Ts7pWhWQV9UaBn3H/), which means it has all the great features that you already love, when it comes to orchestrating packages.  By combining the extensibility of GitHub actions, and the simplicity of GitHub pages, get ready for an amazing set of features.
+As the official GitHub implementation of Flxbl, sfops delivers enterprise-grade Salesforce DevOps through production-ready, opinionated workflows.
+
+Built on [sfp](https://docs.flxbl.io/sfp)—the package orchestration engine powering Flxbl—sfops combines proven ALM patterns with GitHub's native platform capabilities. The result: comprehensive automation that works out of the box, with the extensibility to adapt to your specific needs.
 
 ## Environment Management
 
-sfops features comprehensive scratch org pools, sandbox pools that allows to manage a pool of orgs ready for use as developer/review environments saving considerable amount of time and unlocking never seen before workflows for your salesforce projects
+sfops manages comprehensive scratch org and sandbox pools, maintaining ready-to-use environments for development and review workflows. This eliminates wait times and enables modern development patterns like ephemeral review environments and pooled developer sandboxes—workflows that simply aren't possible without automation.
+
+Enhanced with [sfp server](https://docs.flxbl.io/sfp-server), sfops maintains persistent environment state that survives across workflow runs:
+- **Environment state persistence**: Stores environment metadata, assignments, and pool state outside GitHub's ephemeral workflow context
+- **Review environment pooling**: Maintains pool state and assignment metadata for intelligent PR-to-environment matching
+- **Distributed lock coordination**: Enables safe concurrent access to shared environments across parallel workflows
+- **Cross-workflow context**: Shares environment state and metadata across multiple workflows and repositories
 
 ## Dev Central
 
-sfops features a static web app deployed to GitHub pages that enables team members with visibility into your ALM process.
+Dev Central is a GitHub Pages application that provides complete visibility into your ALM process. Built as a static web app, it delivers real-time insights without requiring external hosting or infrastructure.
 
 ### **Dashboards**
 
@@ -40,9 +48,21 @@ sfops features a static web app deployed to GitHub pages that enables team membe
 * **Apex Test Reports:** Provides daily summaries of Apex test executions in test-designated environments.
 * **PMD Reports:** Delivers static analysis reports from PMD to help maintain high code quality across the codebase.
 
+## AI-Powered Code Intelligence
+
+sfops brings AI assistance natively into your pull request workflow. During PR validation, the AI-powered linter automatically analyzes your changes and provides intelligent architectural insights:
+
+- **Smart PR analysis**: Examines changed files in real-time during validation
+- **Flxbl framework expertise**: Trained on Salesforce and Flxbl patterns to provide contextual recommendations
+- **Actionable insights**: Generates severity-based feedback (info, warning, concern) with specific recommendations
+- **GitHub-native integration**: Appears as check annotations alongside standard PR checks—never blocks merges
+- **Flexible provider support**: Works with Anthropic Claude (recommended), OpenAI, Amazon Bedrock, or GitHub Copilot
+
+This AI integration runs automatically on every PR, providing experienced architectural guidance without requiring manual code reviews or interrupting developer flow.
+
 ## IssueOps
 
-The `sfops` IssueOps deployed in your GitHub repository as issue templates and associated actions streamlines and automates key Salesforce operations. This  allows team members to efficiently manage package installations, environment configurations, release processes, and user permissions by simply initiating requests via pre-defined issue templates.
+sfops IssueOps transforms GitHub issues into operational workflows. Pre-defined issue templates and associated GitHub Actions automate key Salesforce operations, enabling team members to manage package installations, environment configurations, releases, and permissions through simple, trackable issue requests.
 
 ### Package/Artifact Installation
 
