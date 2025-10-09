@@ -4,13 +4,20 @@
 
 As the official workflows for Flxbl on GitHub, sfops provides battle-tested, opinionated implementations that handle the complexity of Salesforce ALM. Instead of reinventing the wheel with custom actions and workflows, you get proven patterns that work out of the box—refined through real-world enterprise implementations.
 
-## Why sfops?
+## Why GitHub? Why sfops?
+
+If you're evaluating Salesforce DevOps platforms like Gearset or Copado, here's what makes sfops different: **it runs entirely on GitHub.**
+
+- **No proprietary platform**: Everything happens in GitHub—no separate UI to learn, no external orchestration layer
+- **No vendor lock-in**: Your workflows are GitHub Actions you control. Modify them, extend them, or replace them—they're yours
+- **GitHub-native architecture**: Orchestration runs entirely on GitHub Actions, with optional sfp server for state persistence
+- **Native developer experience**: Developers stay in GitHub for code, PRs, issues, and deployments. No context switching to external platforms
 
 sfops delivers battle-tested Salesforce DevOps so you don't have to build it yourself:
 
 - **Ready to deploy**: Complete workflows for builds, validations, releases, and environment management—no custom GitHub Actions required
 - **Proven patterns**: Opinionated workflows refined through enterprise production use, not experimental configurations you have to debug
-- **GitHub-native by design**: Everything runs on GitHub Actions, GitHub Pages, and GitHub APIs—leverage what you already have without external tools
+- **Fully transparent**: All workflows are visible GitHub Actions YAML. See exactly what's running, when, and why
 - **Developer-first**: Built for daily development workflows—PR validation, review environments, automated testing—ready to use immediately
 
 Built on [sfp](https://docs.flxbl.io/sfp)—the package orchestration engine powering Flxbl—sfops gives you production-grade Salesforce DevOps on GitHub without the months of effort to build it yourself.
