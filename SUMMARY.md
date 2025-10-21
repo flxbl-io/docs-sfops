@@ -2,6 +2,7 @@
 
 * [Overview](README.md)
 * [Features](features.md)
+* [Architecture](architecture.md)
 * [Environments](environments/README.md)
   * [Creating an Environment](environments/creating-an-environment.md)
   * [Authenticating to Environments](environments/authenticating-to-environments.md)
