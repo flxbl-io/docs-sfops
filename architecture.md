@@ -252,7 +252,7 @@ graph TB
 
     subgraph "Flxbl-Managed sfops"
         H[Flxbl managed sfops repository]
-        I[Direct Push via GitHub App]
+        I[Direct Push via GitHub PAT]
         J[ghcr.io/your-org/sfops:latest]
         K[ghcr.io/your-org/sfops-lite:latest]
     end
@@ -304,7 +304,7 @@ Organizations maintaining their own sfops installation:
 
 Organizations with Flxbl team managing sfops:
 
-1. Flxbl team has direct access to your organization via GitHub App
+1. Flxbl team has direct access to your organization via GitHub App/PAT (using a support account)
 2. Docker images pushed directly to your organization's GitHub Container Registry (ghcr.io)
 3. Workflows and actions pushed directly to your sfops-gh-actions repository
 4. Automatic updates when new versions are released
