@@ -62,11 +62,11 @@ graph TB
 
 The foundation layer consists of official Salesforce libraries running on Node.js runtime. **This layer is never executed directly by sfops** - it is used internally by sfp-pro:
 
-- **@salesforce/core**: Core Salesforce authentication and org management
-- **@salesforce/source-deploy-retrieve**: Metadata deployment and retrieval
-- **@salesforce/source-tracking**: Source change tracking
-- **@salesforce/packaging**: Package creation and management
-- **@salesforce/apex**: Apex test execution and code analysis
+* **@salesforce/core**: Core Salesforce authentication and org management
+* **@salesforce/source-deploy-retrieve**: Metadata deployment and retrieval
+* **@salesforce/source-tracking**: Source change tracking
+* **@salesforce/packaging**: Package creation and management
+* **@salesforce/apex**: Apex test execution and code analysis
 
 **Important**: sfops does not call these libraries directly. They are dependencies of sfp-pro. sfp-pro uses these libraries programmatically, not through the Salesforce CLI executable.
 
@@ -74,10 +74,10 @@ The foundation layer consists of official Salesforce libraries running on Node.j
 
 The middle layer provides package lifecycle orchestration and is what sfops actually executes:
 
-- **CLI-based orchestrator**: Exposes commands that sfops workflows call (e.g., `sfp pool:fetch`, `sfp orchestrator:deploy`)
-- **Direct library usage**: Uses @salesforce libraries programmatically in its implementation
-- **Custom code and libraries**: Additional functionality beyond standard Salesforce libraries
-- **Bundled utilities**: Pre-configured tools for common DevOps tasks
+* **CLI-based orchestrator**: Exposes commands that sfops workflows call (e.g., `sfp pool:fetch`, `sfp orchestrator:deploy`)
+* **Direct library usage**: Uses @salesforce libraries programmatically in its implementation
+* **Custom code and libraries**: Additional functionality beyond standard Salesforce libraries
+* **Bundled utilities**: Pre-configured tools for common DevOps tasks
 
 **Execution model**: sfops scripts execute `sfp` CLI commands, which internally use Salesforce libraries directly (not via `sf` CLI).
 
@@ -85,10 +85,10 @@ The middle layer provides package lifecycle orchestration and is what sfops actu
 
 The outer layer delivers GitHub-native automation by calling sfp-pro:
 
-- **GitHub Actions**: Workflows and actions that execute `sfp` CLI commands (and `sf` CLI when needed) via NodeJS and Bash scripts
-- **Reusable Components**: Workflows and actions consumed from sfops-gh-actions repository
-- **Docker Containers**: GitHub Actions run in Docker containers (sfops:latest or sfops-lite:latest)
-- **Dev Central**: Jekyll-based web application hosted on GitHub Pages
+* **GitHub Actions**: Workflows and actions that execute `sfp` CLI commands (and `sf` CLI when needed) via NodeJS and Bash scripts
+* **Reusable Components**: Workflows and actions consumed from sfops-gh-actions repository
+* **Docker Containers**: GitHub Actions run in Docker containers (sfops:latest or sfops-lite:latest)
+* **Dev Central**: Jekyll-based web application hosted on GitHub Pages
 
 **Execution model**: All sfops automation runs within GitHub Actions. sfops primarily calls `sfp` CLI for orchestration, but can also use `sf` CLI directly when needed for specific Salesforce operations.
 
@@ -123,35 +123,31 @@ graph TB
 ### Component Interaction Flow
 
 1. **GitHub Pages (Dev Central)**
-   - Static web application providing visibility into ALM processes
-   - Displays dashboards, metrics, releases, and work items
-   - Links to GitHub Issues for operational requests
-   - **v2**: Reads environment state and metadata from sfp server
-
+   * Static web application providing visibility into ALM processes
+   * Displays dashboards, metrics, releases, and work items
+   * Links to GitHub Issues for operational requests
+   * **v2**: Reads environment state and metadata from sfp server
 2. **GitHub Issues/Forms (IssueOps)**
-   - Users create issues for operational requests (deployments, environments, permissions)
-   - Issue templates with structured forms
-   - Comments and PR interactions trigger workflows
-
+   * Users create issues for operational requests (deployments, environments, permissions)
+   * Issue templates with structured forms
+   * Comments and PR interactions trigger workflows
 3. **GitHub Actions (Execution Engine)**
-   - Workflows composed using Docker images from ghcr.io
-   - Executes automation in response to events
-   - Updates state and generates reports
-   - **v2**: Stores environment state, release definitions, and workflow metadata in sfp server
-   - **v2**: Queries sfp server for environment assignments and pool state
-
+   * Workflows composed using Docker images from ghcr.io
+   * Executes automation in response to events
+   * Updates state and generates reports
+   * **v2**: Stores environment state, release definitions, and workflow metadata in sfp server
+   * **v2**: Queries sfp server for environment assignments and pool state
 4. **GitHub Repository & Packages**
-   - Git repositories for source control
-   - Variables and secrets for configuration
-   - Environments for deployment targets
-   - Container registry (ghcr.io) for Docker images
-
+   * Git repositories for source control
+   * Variables and secrets for configuration
+   * Environments for deployment targets
+   * Container registry (ghcr.io) for Docker images
 5. **sfp server (Optional - v2 Feature)**
-   - **Persistent state management**: Stores environment metadata, assignments, and pool state across workflow runs
-   - **Distributed coordination**: Enables safe concurrent access to shared environments across parallel workflows
-   - **Cross-workflow context**: Shares state and metadata across multiple workflows and repositories
-   - **Centralized authentication**: Manages credentials and auth URLs without exposing them to workflow logs
-   - **Release tracking**: Stores release definitions and deployment history for complete auditability
+   * **Persistent state management**: Stores environment metadata, assignments, and pool state across workflow runs
+   * **Distributed coordination**: Enables safe concurrent access to shared environments across parallel workflows
+   * **Cross-workflow context**: Shares state and metadata across multiple workflows and repositories
+   * **Centralized authentication**: Manages credentials and auth URLs without exposing them to workflow logs
+   * **Release tracking**: Stores release definitions and deployment history for complete auditability
 
 ## sfops Execution Layer
 
@@ -199,42 +195,41 @@ graph TB
 
 sfops utilizes two Docker images served from your organization's GitHub Container Registry (ghcr.io):
 
-- **sfops:latest** - Full image containing:
-  - sfp-pro binaries (includes Salesforce libraries)
-  - Salesforce CLI (`sf`)
-  - PMD for code analysis
-  - Browserforce for configuration
-  - Java runtime
-
-- **sfops-lite:latest** - Minimal image containing:
-  - sfp-pro binaries (includes Salesforce libraries)
-  - Used for lightweight operations where full tooling is not needed
+* **sfops:latest** - Full image containing:
+  * sfp-pro binaries (includes Salesforce libraries)
+  * Salesforce CLI (`sf`)
+  * PMD for code analysis
+  * Browserforce for configuration
+  * Java runtime
+* **sfops-lite:latest** - Minimal image containing:
+  * sfp-pro binaries (includes Salesforce libraries)
+  * Used for lightweight operations where full tooling is not needed
 
 #### 2. Reusable Workflows & Actions
 
 Workflows and actions are centralized in the `sfops-gh-actions` repository within your GitHub organization:
 
-- Reusable workflows for common patterns (validation, deployment, releases)
-- Custom actions for specific operations
-- Consumed by project repositories via workflow calls
+* Reusable workflows for common patterns (validation, deployment, releases)
+* Custom actions for specific operations
+* Consumed by project repositories via workflow calls
 
 #### 3. GitHub App Integration
 
 GitHub-related API calls are executed through a custom GitHub App (`sfops-bot`) provisioned in your organization:
 
-- Cross-repository operations
-- Issue and PR automation
-- Workflow triggers
-- **Exception**: Package publishing uses personal access tokens (PAT)
+* Cross-repository operations
+* Issue and PR automation
+* Workflow triggers
+* **Exception**: Package publishing uses personal access tokens (PAT)
 
 #### 4. Project Workflows
 
 Project-specific workflows reside in each Salesforce project repository:
 
-- React to repository events (push, PR, issues)
-- Call reusable workflows from sfops-gh-actions
-- Pass configuration via variables and secrets
-- Customizable for project-specific needs
+* React to repository events (push, PR, issues)
+* Call reusable workflows from sfops-gh-actions
+* Pass configuration via variables and secrets
+* Customizable for project-specific needs
 
 ## Runtime Images & Distribution
 
@@ -256,7 +251,7 @@ graph TB
     end
 
     subgraph "Flxbl-Managed sfops"
-        H[Flxbl Team]
+        H[Flxbl managed sfops repository]
         I[Direct Push via GitHub App]
         J[ghcr.io/your-org/sfops:latest]
         K[ghcr.io/your-org/sfops-lite:latest]
@@ -285,10 +280,10 @@ graph TB
 
 sfp-pro CLI is distributed as two Docker image variants, which sfops extends:
 
-| Image | Contents | Use Case |
-|-------|----------|----------|
-| **sfp-pro** | sfp-pro binaries (includes Salesforce libraries), Salesforce CLI (`sf`), PMD, Browserforce, Java | Full-featured operations requiring all tools |
-| **sfp-pro-lite** | sfp-pro binaries only (includes Salesforce libraries) | Lightweight operations, faster startup |
+| Image            | Contents                                                                                         | Use Case                                     |
+| ---------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------- |
+| **sfp-pro**      | sfp-pro binaries (includes Salesforce libraries), Salesforce CLI (`sf`), PMD, Browserforce, Java | Full-featured operations requiring all tools |
+| **sfp-pro-lite** | sfp-pro binaries only (includes Salesforce libraries)                                            | Lightweight operations, faster startup       |
 
 **Note**: sfops images are built on top of these sfp-pro base images, adding sfops-specific scripts and configurations.
 
@@ -354,11 +349,11 @@ on:
 
 **Supported Events:**
 
-- `pull_request` - PR opened, synchronized, or reopened
-- `push` - Code pushed to branch
-- `issues` - Issue created or commented
-- `workflow_dispatch` - Manual trigger
-- `schedule` - Cron-based scheduling
+* `pull_request` - PR opened, synchronized, or reopened
+* `push` - Code pushed to branch
+* `issues` - Issue created or commented
+* `workflow_dispatch` - Manual trigger
+* `schedule` - Cron-based scheduling
 
 ### Step 2: Call Reusable Workflow
 
@@ -383,9 +378,9 @@ jobs:
 
 **Data Passed:**
 
-- **Variables (`with`)**: Non-sensitive configuration
-- **Secrets (`secrets`)**: Sensitive credentials and tokens
-- **Context**: GitHub event context automatically available
+* **Variables (`with`)**: Non-sensitive configuration
+* **Secrets (`secrets`)**: Sensitive credentials and tokens
+* **Context**: GitHub event context automatically available
 
 ### Step 3: Workflow Expands and Executes
 
@@ -457,10 +452,10 @@ jobs:
 
 **Job Execution:**
 
-- Jobs run in Docker containers using `${{ sfops.sfops_docker_image }}` (sfops:latest) or `${{ sfops.sfops_lite_docker_image }}` (sfops-lite:latest)
-- Each step executes sequentially within a job
-- Jobs can run in parallel unless dependencies specified (e.g., `build` waits for `fetch-snapshot-envs` if needed)
-- Container images are pulled from your organization's GitHub Container Registry (ghcr.io)
+* Jobs run in Docker containers using `${{ sfops.sfops_docker_image }}` (sfops:latest) or `${{ sfops.sfops_lite_docker_image }}` (sfops-lite:latest)
+* Each step executes sequentially within a job
+* Jobs can run in parallel unless dependencies specified (e.g., `build` waits for `fetch-snapshot-envs` if needed)
+* Container images are pulled from your organization's GitHub Container Registry (ghcr.io)
 
 ### Step 4: Actions Execute Core Logic
 
@@ -486,14 +481,15 @@ graph LR
 
 **Action Components:**
 
-- **Wrapper scripts**: NodeJS or Bash scripts that orchestrate operations
-- **CLI commands**: Primarily calls to `sfp` CLI for orchestration, with `sf` CLI used when needed for specific Salesforce operations
-- **Custom logic**: Project-specific automation and transformations
-- **Error handling**: Validation, retries, and failure reporting
+* **Wrapper scripts**: NodeJS or Bash scripts that orchestrate operations
+* **CLI commands**: Primarily calls to `sfp` CLI for orchestration, with `sf` CLI used when needed for specific Salesforce operations
+* **Custom logic**: Project-specific automation and transformations
+* **Error handling**: Validation, retries, and failure reporting
 
 **Key distinction**:
-- **sfops (GitHub Actions)**: Can call both `sfp` CLI and `sf` CLI
-- **sfp-pro**: Uses Salesforce libraries programmatically - does not use `sf` CLI executable
+
+* **sfops (GitHub Actions)**: Can call both `sfp` CLI and `sf` CLI
+* **sfp-pro**: Uses Salesforce libraries programmatically - does not use `sf` CLI executable
 
 ### Step 5: Report Results to Dashboard
 
@@ -530,11 +526,11 @@ sequenceDiagram
 
 **Report Data:**
 
-- Build status and metrics
-- Package deployment results
-- Test execution summaries
-- Environment state changes
-- Pull request impacts
+* Build status and metrics
+* Package deployment results
+* Test execution summaries
+* Environment state changes
+* Pull request impacts
 
 The dashboard (Dev Central) automatically rebuilds when new JSON files are committed, providing real-time visibility into all operations.
 
@@ -613,61 +609,61 @@ graph TB
 
 #### 1. Environment Management
 
-- Stores environment metadata, assignments, and configuration
-- Tracks which PR is assigned to which review environment
-- Maintains pool state for scratch orgs and sandboxes
-- Manages environment lifecycles and expiration
+* Stores environment metadata, assignments, and configuration
+* Tracks which PR is assigned to which review environment
+* Maintains pool state for scratch orgs and sandboxes
+* Manages environment lifecycles and expiration
 
 #### 2. Authentication Management
 
-- Centralized storage of auth URLs
-- No need for environment-specific secrets in GitHub
-- Dynamic credential retrieval during workflow execution
-- Support for any environment naming convention
+* Centralized storage of auth URLs
+* No need for environment-specific secrets in GitHub
+* Dynamic credential retrieval during workflow execution
+* Support for any environment naming convention
 
 #### 3. Release Tracking
 
-- Stores release definitions and configurations
-- Tracks deployment history across environments
-- Provides complete audit trail for compliance
-- Enables release rollback and comparison
+* Stores release definitions and configurations
+* Tracks deployment history across environments
+* Provides complete audit trail for compliance
+* Enables release rollback and comparison
 
 #### 4. Distributed Coordination
 
-- Distributed locks for concurrent workflow execution
-- Safe access to shared environments across parallel workflows
-- Prevents race conditions in environment allocation
-- Coordinates pool operations across multiple workflows
+* Distributed locks for concurrent workflow execution
+* Safe access to shared environments across parallel workflows
+* Prevents race conditions in environment allocation
+* Coordinates pool operations across multiple workflows
 
 #### 5. Cross-Workflow State
 
-- Shares context between different workflows
-- Maintains state across workflow runs
-- Enables workflows to query previous run results
-- Supports multi-repository coordination
+* Shares context between different workflows
+* Maintains state across workflow runs
+* Enables workflows to query previous run results
+* Supports multi-repository coordination
 
 ### How Components Interact with sfp server
 
 **sfp CLI:**
 
-- Executes commands with `--sfpserverurl` and `--sfpservertoken` parameters
-- Stores environment state after operations (fetch, deploy, release)
-- Queries server for available environments and pool status
-- Updates release definitions and deployment status
+* Executes commands with `--sfpserverurl` and `--sfpservertoken` parameters
+* Stores environment state after operations (fetch, deploy, release)
+* Queries server for available environments and pool status
+* Updates release definitions and deployment status
 
 **GitHub Actions Workflows:**
 
-- Pass `SFP_SERVER_URL` and `SFP_SERVER_TOKEN` to reusable workflows
-- Use v2/v3 workflows that include server integration
-- Automatically sync state after major operations
-- Query server for environment assignments
+* Pass `SFP_SERVER_URL` and `SFP_SERVER_TOKEN` to reusable workflows
+* Use v2/v3 workflows that include server integration
+* Automatically sync state after major operations
+* Query server for environment assignments
 
 **Dev Central:**
 
-- Reads environment state from sfp server REST API
-- Displays real-time pool status and environment assignments
-- Shows release history and deployment tracking
-- No longer relies solely on JSON files in dashboard repository
+* Reads environment state from sfp server REST API
+* Displays real-time pool status and environment assignments
+* Shows release history and deployment tracking
+* No longer relies solely on JSON files in dashboard repository
 
 ### Migration Path
 
@@ -693,44 +689,46 @@ Everything runs on GitHub's infrastructure - no external platforms, no separate 
 
 ### 2. Transparent & Debuggable
 
-- All workflows visible in `.github/workflows`
-- All actions visible in sfops-gh-actions repository
-- Full execution logs in GitHub Actions
-- No hidden logic or black-box operations
+* All workflows visible in `.github/workflows`
+* All actions visible in sfops-gh-actions repository
+* Full execution logs in GitHub Actions
+* No hidden logic or black-box operations
 
 ### 3. Stateful & Scalable
 
 **Without sfp server (v1)**:
-- State stored in JSON files in dashboard repository
-- Works well for most teams
-- Simple setup with no additional infrastructure
+
+* State stored in JSON files in dashboard repository
+* Works well for most teams
+* Simple setup with no additional infrastructure
 
 **With sfp server (v2+)**:
-- Persistent environment state across workflow runs
-- Distributed coordination for concurrent operations
-- Centralized authentication and credential management
-- Enhanced release tracking and audit capabilities
+
+* Persistent environment state across workflow runs
+* Distributed coordination for concurrent operations
+* Centralized authentication and credential management
+* Enhanced release tracking and audit capabilities
 
 ### 4. Concurrent & Safe
 
-- Parallel environment deployments
-- Concurrent workflow execution
-- Pool-based environment management
-- Distributed lock coordination (with sfp server)
+* Parallel environment deployments
+* Concurrent workflow execution
+* Pool-based environment management
+* Distributed lock coordination (with sfp server)
 
 ### 5. Extensible
 
-- Add custom workflows to project repositories
-- Create custom actions in sfops-gh-actions
-- Extend Dev Central with custom dashboards
-- Integrate with external tools via workflows
-- Optional sfp server for advanced state management
+* Add custom workflows to project repositories
+* Create custom actions in sfops-gh-actions
+* Extend Dev Central with custom dashboards
+* Integrate with external tools via workflows
+* Optional sfp server for advanced state management
 
 ## Next Steps
 
 Now that you understand the architecture, explore:
 
-- [Environments](environments/README.md) - How environments are managed and configured
-- [Project Workflows](project-workflows/README.md) - Detailed workflow documentation
-- [Self-Managed Setup](self-managed-instances/setting-up/README.md) - Deploy your own sfops instance
-- [IssueOps](issueops/access/README.md) - Operational automation via GitHub Issues
+* [Environments](environments/) - How environments are managed and configured
+* [Project Workflows](project-workflows/) - Detailed workflow documentation
+* [Self-Managed Setup](self-managed-instances/setting-up/) - Deploy your own sfops instance
+* [IssueOps](issueops/access/) - Operational automation via GitHub Issues
