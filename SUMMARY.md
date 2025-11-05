@@ -10,6 +10,8 @@
     * [Configuring Review Sandboxes](environments/review-environments/configuring-review-sandboxes.md)
     * [Creation and Allocation of Review Sandboxes](environments/review-environments/creation-and-allocation-of-review-sandboxes.md)
     * [PR Validation Controls](environments/review-environments/pr-validation-controls.md)
+* [Reusable Actions](reusable-actions/README.md)
+  * [Hybrid Authentication](reusable-actions/auth-to-environment-hybrid.md)
 * [Project Workflows](project-workflows/README.md)
   * [sfops - Execute Issue Ops](project-workflows/sfops-execute-issue-ops.md)
   * [sfops - On Pull Request Comments](project-workflows/sfops-on-pull-request-comments.md)
