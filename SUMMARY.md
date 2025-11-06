@@ -10,11 +10,6 @@
     * [Configuring Review Sandboxes](environments/review-environments/configuring-review-sandboxes.md)
     * [Creation and Allocation of Review Sandboxes](environments/review-environments/creation-and-allocation-of-review-sandboxes.md)
     * [PR Validation Controls](environments/review-environments/pr-validation-controls.md)
-* [Reusable Actions](reusable-actions/README.md)
-  * [Hybrid Environment Authentication](reusable-actions/auth-to-environment-hybrid.md)
-  * [Hybrid DevHub Authentication](reusable-actions/auth-to-devhub-hybrid.md)
-  * [Authentication with Lock](reusable-actions/auth-to-environment-with-lock.md)
-  * [Authentication without Lock](reusable-actions/auth-to-environment-without-lock.md)
 * [Project Workflows](project-workflows/README.md)
   * [sfops - Execute Issue Ops](project-workflows/sfops-execute-issue-ops.md)
   * [sfops - On Pull Request Comments](project-workflows/sfops-on-pull-request-comments.md)
@@ -25,6 +20,14 @@
   * [sfops - On Push to Branch](project-workflows/build-deploy-and-publish.md)
   * [sfops - Execute Releases to any env](project-workflows/sfops-execute-releases-to-any-env.md)
   * [sfops - Execute Releases](project-workflows/sfops-execute-releases.md)
+
+## BYO workflows
+
+* [Reusable Actions](byo-workflows/reusable-actions/README.md)
+  * [Hybrid Environment Authentication](byo-workflows/reusable-actions/auth-to-environment-hybrid.md)
+  * [Hybrid DevHub Authentication](byo-workflows/reusable-actions/auth-to-devhub-hybrid.md)
+  * [Authentication with Lock](byo-workflows/reusable-actions/auth-to-environment-with-lock.md)
+  * [Authentication without Lock](byo-workflows/reusable-actions/auth-to-environment-without-lock.md)
 
 ## IssueOps
 
