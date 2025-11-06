@@ -1,12 +1,4 @@
 ---
-keywords:
-  - reusable actions
-  - custom workflows
-  - GitHub actions
-  - authentication actions
-  - workflow building blocks
-  - composite actions
-  - custom automation
 description: Reusable GitHub Actions for building custom sfops workflows
 ---
 

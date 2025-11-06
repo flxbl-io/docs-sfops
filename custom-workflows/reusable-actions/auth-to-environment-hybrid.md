@@ -1,15 +1,4 @@
 ---
-keywords:
-  - custom workflows
-  - hybrid authentication
-  - authToEnvironmentHybrid
-  - sfp server
-  - custom actions
-  - workflow authentication
-  - environment authentication
-  - flexible authentication
-  - custom deployment
-  - reusable workflows
 description: >-
   Learn how to use hybrid authentication in custom workflows to seamlessly
   authenticate to any Salesforce environment with automatic fallback support

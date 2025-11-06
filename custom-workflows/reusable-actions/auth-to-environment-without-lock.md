@@ -1,15 +1,4 @@
 ---
-keywords:
-  - custom workflows
-  - authentication without lock
-  - authToEnvironmentWithoutLock
-  - sfp server
-  - custom actions
-  - workflow authentication
-  - environment authentication
-  - read-only access
-  - concurrent operations
-  - monitoring workflows
 description: >-
   Learn how to authenticate to Salesforce environments through SFP server
   without locking for read-only operations and concurrent access scenarios

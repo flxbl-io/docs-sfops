@@ -1,14 +1,4 @@
 ---
-keywords:
-  - custom workflows
-  - devhub authentication
-  - authToDevHubHybrid
-  - sfp server
-  - custom actions
-  - workflow authentication
-  - devhub access
-  - scratch org creation
-  - package development
 description: >-
   Learn how to use hybrid DevHub authentication in custom workflows to
   seamlessly authenticate to Salesforce DevHub with automatic fallback support

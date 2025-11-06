@@ -21,13 +21,13 @@
   * [sfops - Execute Releases to any env](project-workflows/sfops-execute-releases-to-any-env.md)
   * [sfops - Execute Releases](project-workflows/sfops-execute-releases.md)
 
-## BYO workflows
+## CUSTOM workflows
 
-* [Reusable Actions](byo-workflows/reusable-actions/README.md)
-  * [Hybrid Environment Authentication](byo-workflows/reusable-actions/auth-to-environment-hybrid.md)
-  * [Hybrid DevHub Authentication](byo-workflows/reusable-actions/auth-to-devhub-hybrid.md)
-  * [Authentication with Lock](byo-workflows/reusable-actions/auth-to-environment-with-lock.md)
-  * [Authentication without Lock](byo-workflows/reusable-actions/auth-to-environment-without-lock.md)
+* [Reusable Actions](custom-workflows/reusable-actions/README.md)
+  * [Hybrid Environment Authentication](custom-workflows/reusable-actions/auth-to-environment-hybrid.md)
+  * [Hybrid DevHub Authentication](custom-workflows/reusable-actions/auth-to-devhub-hybrid.md)
+  * [Authentication with Lock](custom-workflows/reusable-actions/auth-to-environment-with-lock.md)
+  * [Authentication without Lock](custom-workflows/reusable-actions/auth-to-environment-without-lock.md)
 
 ## IssueOps
 

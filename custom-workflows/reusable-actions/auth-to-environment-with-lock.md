@@ -1,15 +1,4 @@
 ---
-keywords:
-  - custom workflows
-  - environment locking
-  - authToEnvironmentWithLock
-  - sfp server
-  - custom actions
-  - workflow authentication
-  - environment authentication
-  - exclusive access
-  - concurrent protection
-  - deployment safety
 description: >-
   Learn how to authenticate to Salesforce environments with exclusive locking
   using SFP server to prevent concurrent access during critical operations
