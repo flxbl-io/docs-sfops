@@ -24,10 +24,10 @@
 ## CUSTOM workflows
 
 * [Reusable Actions](custom-workflows/reusable-actions/README.md)
-  * [Hybrid Environment Authentication](custom-workflows/reusable-actions/auth-to-environment-hybrid.md)
-  * [Hybrid DevHub Authentication](custom-workflows/reusable-actions/auth-to-devhub-hybrid.md)
-  * [Authentication with Lock](custom-workflows/reusable-actions/auth-to-environment-with-lock.md)
-  * [Authentication without Lock](custom-workflows/reusable-actions/auth-to-environment-without-lock.md)
+  * [Authenticate to DevHub](custom-workflows/reusable-actions/auth-to-devhub-hybrid.md)
+  * [Authenticate to Environment](custom-workflows/reusable-actions/auth-to-environment-hybrid.md)
+  * [Authenticate to an Enviroment with Lock (SFP Server)](custom-workflows/reusable-actions/auth-to-environment-with-lock.md)
+  * [Authenticate to an Environment without Lock (SFP Server)](custom-workflows/reusable-actions/auth-to-environment-without-lock.md)
 
 ## IssueOps
 
