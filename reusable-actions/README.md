@@ -11,7 +11,10 @@ Reusable actions are building blocks provided by sfops that you can use to creat
 
 ### Authentication Actions
 
-- **[Hybrid Authentication](auth-to-environment-hybrid.md)** - Intelligent authentication that automatically uses SFP server or native SFDX authentication based on environment registration
+- **[Hybrid Environment Authentication](auth-to-environment-hybrid.md)** - Intelligent authentication that automatically uses SFP server or native SFDX authentication based on environment registration
+- **[Hybrid DevHub Authentication](auth-to-devhub-hybrid.md)** - Flexible DevHub authentication with automatic fallback between SFP server and native methods
+- **[Authentication with Lock](auth-to-environment-with-lock.md)** - Secure authentication with exclusive environment locking for critical operations
+- **[Authentication without Lock](auth-to-environment-without-lock.md)** - Streamlined authentication for read-only operations and concurrent access
 
 ### Other Actions
 
