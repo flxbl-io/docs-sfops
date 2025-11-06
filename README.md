@@ -6,7 +6,7 @@ As the official workflows for Flxbl on GitHub, sfops provides battle-tested, opi
 
 ## Why GitHub? Why sfops?
 
-**sfops runs entirely on GitHub.** No separate platforms, no external UIs—just GitHub doing what it does best.
+**sfops runs entirely on GitHub.** No separate platforms, just GitHub doing what it does best.
 
 * **GitHub-native architecture**: Orchestration runs entirely on GitHub Actions, with sfp server for state persistence
 * **Source-available workflows**: All workflows and actions are visible and modifiable under Flxbl's source-available license
