@@ -1,8 +1,10 @@
 # Environments
 
-This section details on how environments are operated in the context of sfops. An environment is backed by a Salesforce sandbox and few additional metadata. An environment can be created or deleted dynamically and can be associated with a stage in the pipeline such as 'development', 'test' or 'release'\\
+This section details on how environments are operated in the context of sfops. An environment is backed by a Salesforce sandbox and few additional metadata. An environment can be created or deleted dynamically and can be associated with a stage in the pipeline such as 'development', 'test' or 'release'
 
-<figure><img src="../.gitbook/assets/image (2) (1) (2).png" alt=""><figcaption><p>Environments displayed with its category in Dev Central</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/CleanShot 2025-11-07 at 00.01.22.png" alt=""><figcaption></figcaption></figure>
+
+
 
 sfops follow the environment strategy as mentioned in the 'flxbl' framework. You can read more details [here](https://app.gitbook.com/s/81CMYlxTEobShX3WGZxY/techniques/environment-management). To recap the environments used in sfops, please see the categories below
 
