@@ -75,3 +75,4 @@
 
 * [Legal](legal/README.md)
   * [Terms of Service for sfops](legal/terms-of-service-for-sfops.md)
+* [Security Policy](security-policy.md)
