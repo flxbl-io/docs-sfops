@@ -28,23 +28,9 @@ Environment IssueOps provide self-service provisioning and management of develop
 
 ## Usage
 
-Enable these operations in your workflow:
-
-```yaml
-name: Environment IssueOps
-
-on:
-  issues:
-    types: [opened, reopened, closed]
-
-jobs:
-  process:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: flxbl-io/sfops-gh-actions/issueAnalyzer@main
-        with:
-          include_issues: 'request-scratchorg,request-dev-sandbox,request-an-env'
-```
+These operations are enabled by default in sfops. Users can submit requests through:
+- **DevCentral**: Navigate to Service Catalogue → Environment
+- **Direct Issue**: Create an issue with the appropriate JSON payload
 
 ## Related Documentation
 

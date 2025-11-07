@@ -46,29 +46,13 @@ sfops provides 14 pre-built IssueOps operations organized into categories. These
 
 ## Using Available IssueOps
 
-### 1. Enable in Workflow
+These IssueOps are enabled by default in sfops. No configuration required.
 
-Add the issue IDs you want to use in your workflow:
+### 1. Submit Request
 
-```yaml
-name: IssueOps Handler
-
-on:
-  issues:
-    types: [opened, reopened, closed]
-
-jobs:
-  analyze:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: flxbl-io/sfops-gh-actions/issueAnalyzer@main
-        with:
-          include_issues: 'request-scratchorg,request-package-installation,request-elevated-previleges'
-```
-
-### 2. Create Issue with Payload
-
-Users create issues with JSON payload in HTML comment:
+Users can submit requests through:
+- **DevCentral**: Navigate to Service Catalogue and use the forms
+- **Direct Issue**: Create an issue with JSON payload in HTML comment:
 
 ```markdown
 Title: Need a scratch org for development
@@ -83,7 +67,7 @@ Title: Need a scratch org for development
 -->
 ```
 
-### 3. Monitor Processing
+### 2. Monitor Processing
 
 The IssueOps executor will:
 - Post processing status as comments
