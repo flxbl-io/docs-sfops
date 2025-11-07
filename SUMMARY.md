@@ -31,9 +31,13 @@
 
 ## IssueOps
 
-* [Access](issueops/access/README.md)
+* [Overview](issueops/README.md)
+* [Available IssueOps](issueops/available-issueops.md)
+* [Building Custom IssueOps](issueops/building-custom-issueops.md)
+* [Environment Operations](issueops/environment/README.md)
+* [Access Operations](issueops/access/README.md)
   * [Request elevated previlege in production](issueops/access/request-elevated-previlege-in-production.md)
-* [Release](issueops/release/README.md)
+* [Release Operations](issueops/release/README.md)
   * [Release a Domain](issueops/release/release-a-domain.md)
   * [Hotfix Workflow](issueops/release/hotfix-workflow.md)
 
