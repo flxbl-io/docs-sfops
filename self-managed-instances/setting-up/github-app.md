@@ -39,19 +39,20 @@ You can refer to this link to understand how this work behind the scenes
 Configure the following permissions for the sfops-bot app:
 
 #### Repository Permissions
-| Permission        | Access Level | Purpose                                                                                                                                        |
-|-------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Actions**       | Read & Write | Crucial for the app to manage GitHub Actions, which are integral to automation workflows                                                       |
-| **Checks**        | Read & Write | Required for reading check runs and status checks on commits, essential for PR status reporting                                                |
-| **Contents**      | Read & Write | Manage code, branches, commits, and merges. This access allows the app to automate code integration processes                                  |
-| **Deployments**   | Read & Write | Empowers the app to manage deployments, essential for continuous delivery workflows                                                            |
-| **Environments**  | Read & Write | Create environments, which will be consumed by workflows                                                                                       |
-| **Issues**        | Read & Write | Enable the app to automate issue tracking, commenting, and labeling                                                                            |
-| **Projects**      | Read & Write | Allow the app to connect issues to projects for better project management                                                                      |
-| **Pull Requests** | Read & Write | Necessary for the app to automate the handling of pull requests, including merging and labeling                                                |
-| **Secrets**       | Read         | Lets the app manage secrets without compromising their security, essential for secure workflows                                                |
-| **Variables**     | Read & Write | Permit the app to read the variables in the repo. This is vital for dynamic configuration of the environment and branch related configurations |
-| **Workflows**     | Read & Write | Permit the app to update workflow files, which is vital for maintaining automated processes                                                    |
+| Permission         | Access Level | Purpose                                                                                                                                        |
+|--------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Actions**        | Read & Write | Crucial for the app to manage GitHub Actions, which are integral to automation workflows                                                       |
+| **Administration** | Read & Write | Required to create GitHub environments via API (IssueOps environment requests)                                                                 |
+| **Checks**         | Read & Write | Required for reading check runs and status checks on commits, essential for PR status reporting                                                |
+| **Contents**       | Read & Write | Manage code, branches, commits, and merges. This access allows the app to automate code integration processes                                  |
+| **Deployments**    | Read & Write | Empowers the app to manage deployments, essential for continuous delivery workflows                                                            |
+| **Environments**   | Read & Write | Manage environment settings and protection rules after creation                                                                                |
+| **Issues**         | Read & Write | Enable the app to automate issue tracking, commenting, and labeling                                                                            |
+| **Projects**       | Read & Write | Allow the app to connect issues to projects for better project management                                                                      |
+| **Pull Requests**  | Read & Write | Necessary for the app to automate the handling of pull requests, including merging and labeling                                                |
+| **Secrets**        | Read         | Lets the app manage secrets without compromising their security, essential for secure workflows                                                |
+| **Variables**      | Read & Write | Permit the app to read the variables in the repo. This is vital for dynamic configuration of the environment and branch related configurations |
+| **Workflows**      | Read & Write | Permit the app to update workflow files, which is vital for maintaining automated processes                                                    |
 
 #### Organization Permissions
 | Permission   | Access Level | Purpose                                                                   |
@@ -132,3 +133,60 @@ The workflows provided by sfops utilizes the above variables to authenticated to
         run: |
           gh workflow <>
 ```
+
+## Troubleshooting
+
+### Error: Failed to create Environment - Resource not accessible by integration
+
+You see this error in your workflow logs:
+
+```
+Error: Failed to create Environment due to Resource not accessible by integration
+https://docs.github.com/rest/deployments/environments#create-or-update-an-environment
+```
+
+#### About this error
+
+The GitHub App token lacks permission to create environments via the REST API. This occurs when the IssueOps `request-an-env` operation runs.
+
+#### Confirming the cause
+
+Check which scenario applies to your setup:
+
+1. **Missing Administration permission** (most common): The GitHub API requires `administration: write` to create environments—the `environments` permission alone is insufficient. Check your app permissions at:
+   ```
+   https://github.com/organizations/YOUR_ORG/settings/apps/sfops-bot
+   ```
+   Look for **Administration** under Repository permissions.
+
+2. **Pending permission acceptance**: Permissions were added to the app but not yet accepted at the installation level. Check for a yellow banner at:
+   ```
+   https://github.com/YOUR_ORG/YOUR_REPO/settings/installations
+   ```
+
+3. **Repository not in installation scope**: If the app is installed on "Selected repositories", verify your repository is included in the list.
+
+#### Fixing the problem
+
+**If Administration permission is missing:**
+
+1. Go to `https://github.com/organizations/YOUR_ORG/settings/apps/sfops-bot`
+2. Click **Permissions & events**
+3. Under **Repository permissions** → Set **Administration** to **Read and write**
+4. Click **Save changes**
+5. Accept the new permission at `https://github.com/YOUR_ORG/YOUR_REPO/settings/installations`
+6. Re-run the failed workflow
+
+**If permissions are pending acceptance:**
+
+1. Go to `https://github.com/YOUR_ORG/YOUR_REPO/settings/installations`
+2. Click **Configure** next to sfops-bot
+3. Accept the pending permission request
+4. Re-run the failed workflow
+
+**If repository is not in installation scope:**
+
+1. Go to `https://github.com/organizations/YOUR_ORG/settings/installations`
+2. Click **Configure** next to sfops-bot
+3. Add your repository to the selected list, or switch to **All repositories**
+4. Re-run the failed workflow
