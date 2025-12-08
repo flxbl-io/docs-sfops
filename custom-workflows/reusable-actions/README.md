@@ -8,24 +8,36 @@ Reusable actions are building blocks provided by sfops that you can use to creat
 
 ## Available Actions
 
-### Authentication Actions
+### Token & Authentication Actions
 
+* [**Get GitHub Token**](get-github-token.md) - Fetch GitHub tokens from sfp server for repository operations without configuring GitHub Apps
 * [**Hybrid Environment Authentication**](auth-to-environment-hybrid.md) - Intelligent authentication that automatically uses SFP server or native SFDX authentication based on environment registration
 * [**Hybrid DevHub Authentication**](auth-to-devhub-hybrid.md) - Flexible DevHub authentication with automatic fallback between SFP server and native methods
 * [**Authentication with Lock**](auth-to-environment-with-lock.md) - Secure authentication with exclusive environment locking for critical operations
 * [**Authentication without Lock**](auth-to-environment-without-lock.md) - Streamlined authentication for read-only operations and concurrent access
 
+### Environment Discovery Actions
+
+* [**Fetch All Environments**](fetch-all-envs.md) - Dynamically fetch and filter environments from GitHub Environments or sfp server for matrix builds and multi-environment workflows
+* [**Match Pool**](match-pool.md) - Match pool assignment rules based on branch and domain patterns for intelligent environment selection
+
+### Change Detection Actions
+
+* [**Impacted Release Definition Detector**](impacted-release-defn-detector.md) - Detect which release definitions are impacted by code changes for targeted validation and deployment
+
+### PR Interaction Actions
+
+* [**Add PR Comment**](add-pr-comment.md) - Add, update, and manage PR comments with support for templating, status-based messages, and comment deduplication
+
 ### Other Actions
 
 sfops includes many other reusable actions for various purposes. You can find them in the `/actions` directory of your sfops repository:
 
-* `authToEnvironment` - Standard environment authentication
-* `authToEnvironmentWithLock` - Authentication with environment locking
-* `authToEnvironmentWithoutLock` - Authentication without locking
-* `manageEnvDeploymentLabel` - Manage environment deployment labels
-* `comment` - Add comments to pull requests or issues
-* `findCurrentPr` - Find the current pull request
-* `get-github-token` - Get GitHub token for authentication
+* `manageEnvDeploymentLabel` - Manage environment deployment labels on PRs
+* `findCurrentPr` - Find the current pull request context
+* `get-github-token` - Get GitHub App token for authentication
+* `unlockEnvironment` - Release environment locks
+* `updateGitRepo` - Update dashboard repository with workflow results
 * And many more...
 
 ## Using Reusable Actions
@@ -59,13 +71,3 @@ Reusable actions allow you to build sophisticated custom workflows by combining 
 * **Data operations** - Export/import data between environments
 * **Maintenance automation** - Scheduled tasks and cleanup operations
 * **Multi-environment operations** - Parallel operations across environments
-
-## Getting Help
-
-For detailed documentation on specific actions:
-
-* Check the action's `README.md` file in the `/actions/[action-name]` directory
-* Review the `action.yml` file for input/output specifications
-* Look at existing sfops workflows for usage examples
-
-For more information on creating workflows, see the [Project Workflows](../../project-workflows/) section.

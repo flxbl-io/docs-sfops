@@ -24,10 +24,15 @@
 ## CUSTOM workflows
 
 * [Reusable Actions](custom-workflows/reusable-actions/README.md)
+  * [Get GitHub Token](custom-workflows/reusable-actions/get-github-token.md)
   * [Authenticate to DevHub](custom-workflows/reusable-actions/auth-to-devhub-hybrid.md)
   * [Authenticate to Environment](custom-workflows/reusable-actions/auth-to-environment-hybrid.md)
   * [Authenticate to an Enviroment with Lock (SFP Server)](custom-workflows/reusable-actions/auth-to-environment-with-lock.md)
   * [Authenticate to an Environment without Lock (SFP Server)](custom-workflows/reusable-actions/auth-to-environment-without-lock.md)
+  * [Fetch All Environments](custom-workflows/reusable-actions/fetch-all-envs.md)
+  * [Add PR Comment](custom-workflows/reusable-actions/add-pr-comment.md)
+  * [Impacted Release Definition Detector](custom-workflows/reusable-actions/impacted-release-defn-detector.md)
+  * [Match Pool](custom-workflows/reusable-actions/match-pool.md)
 
 ## IssueOps
 
@@ -62,6 +67,7 @@
   * [Updating to v29.0.0](self-managed-instances/update-instructions/updating-to-v29.0.0.md)
 * [Workflow details](self-managed-instances/workflow-details/README.md)
   * [Sync Upstream Repository and Create Pull Request](self-managed-instances/workflow-details/sync-upstream-repository-and-create-pull-request.md)
+  * [Dynamic Container Image Override](self-managed-instances/workflow-details/dynamic-container-image-override.md)
 
 ## Changelog
 
