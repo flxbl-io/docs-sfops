@@ -62,6 +62,7 @@
   * [6. Fetching upstream changes](self-managed-instances/setting-up/6.-fetching-upstream-changes/README.md)
     * [6.1 Manual Process for Updating sfops from Upstream](self-managed-instances/setting-up/6.-fetching-upstream-changes/6.1-manual-process-for-updating-sfops-from-upstream.md)
 * [Update Instructions](self-managed-instances/update-instructions/README.md)
+  * [Updating to v31.11.0](self-managed-instances/update-instructions/updating-to-v31.11.0.md)
   * [Updating to v31.5.0](self-managed-instances/update-instructions/updating-to-v31.5.0.md)
   * [Updating to v30.3.1 and above](self-managed-instances/update-instructions/updating-to-v30.3.1-and-above.md)
   * [Updating to v29.0.0](self-managed-instances/update-instructions/updating-to-v29.0.0.md)
