@@ -4,6 +4,16 @@
 
 v31.11.0 introduces a directory restructuring for project workflows. Workflows are now organized into versioned directories (`v1/` and `v2/`) to provide clearer separation and easier maintenance.
 
+## Prerequisites
+
+### Required sfp-pro Version
+
+This release requires **sfp-pro 50.1.0** or later. Ensure your Docker images are updated:
+
+- Update to sfp-pro release: [release-20251218](https://source.flxbl.io/flxbl/sfp-pro/releases/tag/release-20251218)
+
+Rebuild your sfops Docker images after updating sfp-pro to ensure the new features are available.
+
 ## Directory Structure Change
 
 Project workflows have moved from:
@@ -76,6 +86,8 @@ The v1 open-pr workflow now supports GitHub Copilot for AI-powered analysis. You
 
 Both `ANTHROPIC_API_KEY` and `COPILOT_TOKEN` are supported by the underlying reusable workflow - add whichever provider(s) you want to use.
 
+For instructions on configuring GitHub Copilot, see: [Configuring LLM Providers - GitHub Copilot](https://docs.flxbl.io/flxbl/sfp/getting-started/configuring-llm-providers#github-copilot)
+
 #### 3.3 Removed sfp-server References
 
 The following inputs and secrets have been removed from v1 workflows (sfp-server is exclusive to v2):
@@ -125,6 +137,8 @@ The v2 open-pr workflow supports both AI providers. Add the secrets for the prov
 - `COPILOT_TOKEN` - For GitHub Copilot analysis
 
 Both are optional - add whichever you prefer to use.
+
+For instructions on configuring GitHub Copilot, see: [Configuring LLM Providers - GitHub Copilot](https://docs.flxbl.io/flxbl/sfp/getting-started/configuring-llm-providers#github-copilot)
 
 ---
 
