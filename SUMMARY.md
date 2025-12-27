@@ -72,6 +72,7 @@
 
 ## Changelog
 
+* [November 25](changelog/november25.md)
 * [November 24](changelog/november24.md)
 * [January 25](changelog/january25.md)
 * [May 25](changelog/may25.md)
