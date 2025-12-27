@@ -1,175 +1,155 @@
 # sfops v31.11.0 Migration Guide
 
-## Overview
-
-v31.11.0 introduces a directory restructuring for project workflows. Workflows are now organized into versioned directories (`v1/` and `v2/`) to provide clearer separation and easier maintenance.
-
 ## Prerequisites
 
-### Required sfp-pro Version
-
-This release requires **sfp-pro 50.1.0** or later. Ensure your Docker images are updated:
+This release requires **sfp-pro 50.1.0** or later:
 
 - Update to sfp-pro release: [release-20251218](https://source.flxbl.io/flxbl/sfp-pro/releases/tag/release-20251218)
-
-Rebuild your sfops Docker images after updating sfp-pro to ensure the new features are available.
-
-## Directory Structure Change
-
-Project workflows have moved from:
-```
-project-workflows/
-├── sfops-close-issue.yml
-├── sfops-open-pr.yml
-└── ...
-```
-
-To:
-```
-project-workflows/
-├── v1/
-│   ├── sfops-close-issue.yml
-│   ├── sfops-open-pr.yml
-│   └── ...
-└── v2/
-    └── ...
-```
+- Rebuild your sfops Docker images after updating sfp-pro
 
 ---
 
 ## Updating v1 Project Workflows
 
-### 1. Pull Latest sfops Release from Upstream
+### Step 1: Create a Backup Tag
+
+Before making any changes, create a tag so you can easily rollback if needed:
 
 ```bash
-# Fetch and create PR for v31.11.0
+git tag pre-v31.11.0-backup
+git push origin pre-v31.11.0-backup
+```
+
+### Step 2: Pull the Release
+
+```bash
 git fetch upstream --tags
 git checkout -b sfops-v31.11.0-update
 git merge v31.11.0
 git push origin sfops-v31.11.0-update
-
-# Create PR via GitHub UI and merge it to main
 ```
 
-### 2. Copy Workflows from v1 Directory
+Create and merge the PR via GitHub UI.
 
-Copy workflows from `project-workflows/v1/` to your project's `.github/workflows/` directory:
+### Step 3: Copy Workflows to Your Project
+
+Workflows have moved to `project-workflows/v1/`. Copy them to your project:
 
 ```bash
 cp project-workflows/v1/*.yml .github/workflows/
 ```
 
-### 3. Changes in v1 Workflows
-
-#### 3.1 Close Issue Workflow - New Optional Secrets
-
-The close issue workflow now calls `exec-issue-closer.yml` (previously `close-pending-action-on-issues.yml`) and supports additional environment-specific auth URL secrets for environment cleanup on issue close.
-
-**New optional secrets** (add only for environments you use):
-
-| Secret Name | Description |
-|-------------|-------------|
-| `STAGING_SFDX_AUTH_URL` | Auth URL for Staging environment |
-| `PREPROD_SFDX_AUTH_URL` | Auth URL for Pre-Production environment |
-| `UAT_SFDX_AUTH_URL` | Auth URL for UAT environment |
-| `QA_SFDX_AUTH_URL` | Auth URL for QA environment |
-| `IQA_SFDX_AUTH_URL` | Auth URL for IQA environment |
-| `SIT_SFDX_AUTH_URL` | Auth URL for SIT environment |
-
-{% hint style="info" %}
-These secrets are optional. Only add them for environments you actually use. The workflow will function without them.
+{% hint style="warning" %}
+The file `sfops-cron-ci-sandbox-create-v2.yml` has been renamed to `sfops-cron-ci-sandbox-create.yml`. Delete the old file from your `.github/workflows/` if it exists.
 {% endhint %}
 
-#### 3.2 AI Provider Support - Open PR Workflow
+### Step 4: Update sfops-close-issue.yml (Action Required)
 
-The v1 open-pr workflow now supports GitHub Copilot for AI-powered analysis. You can optionally add the `COPILOT_TOKEN` secret if you want to use this feature.
+Open `.github/workflows/sfops-close-issue.yml` and add secrets for each environment you want cleaned up when issues are closed.
 
-Both `ANTHROPIC_API_KEY` and `COPILOT_TOKEN` are supported by the underlying reusable workflow - add whichever provider(s) you want to use.
+Add the relevant secrets to the `secrets:` section:
 
-For instructions on configuring GitHub Copilot, see: [Configuring LLM Providers - GitHub Copilot](https://docs.flxbl.io/flxbl/sfp/getting-started/configuring-llm-providers#github-copilot)
+```yaml
+secrets:
+  DEVHUB_SFDX_AUTH_URL: ${{ secrets.DEVHUB_SFDX_AUTH_URL }}
+  STAGING_SFDX_AUTH_URL: ${{ secrets.STAGING_SFDX_AUTH_URL }}
+  PREPROD_SFDX_AUTH_URL: ${{ secrets.PREPROD_SFDX_AUTH_URL }}
+  UAT_SFDX_AUTH_URL: ${{ secrets.UAT_SFDX_AUTH_URL }}
+  QA_SFDX_AUTH_URL: ${{ secrets.QA_SFDX_AUTH_URL }}
+  IQA_SFDX_AUTH_URL: ${{ secrets.IQA_SFDX_AUTH_URL }}
+  SIT_SFDX_AUTH_URL: ${{ secrets.SIT_SFDX_AUTH_URL }}
+  # ... keep existing secrets
+```
 
-#### 3.3 Removed sfp-server References
+Only include environments you actually use. These secrets must exist in your repository settings.
 
-The following inputs and secrets have been removed from v1 workflows (sfp-server is exclusive to v2):
+### Step 5: Configure AI Provider (Optional)
 
-| Workflow | Removed Inputs | Removed Secrets |
-|----------|----------------|-----------------|
-| `sfops-cron-every-30-mins.yml` | `sfp-server-url` | `SFP_SERVER_TOKEN` |
-| `sfops-open-pr.yml` | `sfp-server-url` | `SFP_SERVER_TOKEN` |
-| `sfops-push-to-branch.yml` | `sfp-server-url` | `SFP_SERVER_TOKEN` |
+If you want AI-powered PR analysis, add one or both secrets to your repository:
 
-If your existing workflows have these references, they will be removed when you copy the new v1 workflows.
+| Secret | Provider |
+|--------|----------|
+| `COPILOT_TOKEN` | GitHub Copilot |
+| `ANTHROPIC_API_KEY` | Anthropic Claude |
 
-#### 3.4 Release Workflows - Added NPM_TOKEN
+For GitHub Copilot setup, see: [Configuring LLM Providers - GitHub Copilot](https://docs.flxbl.io/flxbl/sfp/getting-started/configuring-llm-providers#github-copilot)
 
-The following workflows now include `NPM_TOKEN` secret:
+Then ensure the secret is passed in `.github/workflows/sfops-open-pr.yml`:
 
-- `sfops-open-release-issue.yml`
-- `sfops-open-release-release-any-envs.yml`
+```yaml
+secrets:
+  # ... existing secrets
+  COPILOT_TOKEN: ${{ secrets.COPILOT_TOKEN }}
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+```
 
-This secret should already exist in your repository if you're using package publishing.
+### Step 6: Verify Release Workflows Have NPM_TOKEN
 
-#### 3.5 File Rename
+Check that `.github/workflows/sfops-open-release-issue.yml` and `.github/workflows/sfops-open-release-release-any-envs.yml` include:
 
-`sfops-cron-ci-sandbox-create-v2.yml` has been renamed to `sfops-cron-ci-sandbox-create.yml`
+```yaml
+secrets:
+  # ... existing secrets
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
 
 ---
 
 ## Updating v2 Project Workflows
 
-### 1. Pull Latest sfops Release
+### Step 1: Create a Backup Tag
 
-Follow the same git pull steps as v1 above.
+Same as v1 - see Step 1 above.
 
-### 2. Copy Workflows from v2 Directory
+### Step 2: Pull the Release
+
+Same as v1 - see Step 2 above.
+
+### Step 3: Copy Workflows to Your Project
 
 ```bash
 cp project-workflows/v2/*.yml .github/workflows/
 ```
 
-### 3. Changes in v2 Workflows
+### Step 4: Configure AI Provider (Optional)
 
-#### 3.1 AI Provider Support
-
-The v2 open-pr workflow supports both AI providers. Add the secrets for the provider(s) you want to use:
-
-- `ANTHROPIC_API_KEY` - For Anthropic Claude analysis
-- `COPILOT_TOKEN` - For GitHub Copilot analysis
-
-Both are optional - add whichever you prefer to use.
-
-For instructions on configuring GitHub Copilot, see: [Configuring LLM Providers - GitHub Copilot](https://docs.flxbl.io/flxbl/sfp/getting-started/configuring-llm-providers#github-copilot)
+If you want AI-powered PR analysis, add secrets and update `.github/workflows/sfops-open-pr.yml` as described in v1 Step 5 above.
 
 ---
 
 ## Validation Checklist
 
-### For v1 Users
+### v1 Users
 
-- [ ] Pulled sfops v31.11.0 from upstream
-- [ ] Copied workflows from `project-workflows/v1/` to `.github/workflows/`
-- [ ] (Optional) Added environment-specific auth URL secrets for close-issue workflow
-- [ ] (Optional) Added `COPILOT_TOKEN` if using GitHub Copilot for AI analysis
-- [ ] Verified `NPM_TOKEN` secret exists for release workflows
-- [ ] Tested PR validation workflow
-- [ ] Tested push-to-branch workflow
+- [ ] Updated sfp-pro to 50.1.0 and rebuilt Docker images
+- [ ] Created backup tag `pre-v31.11.0-backup`
+- [ ] Pulled sfops v31.11.0 and merged to main
+- [ ] Copied workflows from `project-workflows/v1/`
+- [ ] Deleted old `sfops-cron-ci-sandbox-create-v2.yml` if it exists
+- [ ] Added environment auth URL secrets for close-issue workflow
+- [ ] Verified `NPM_TOKEN` in release workflows
+- [ ] (Optional) Configured AI provider secrets
+- [ ] Tested a PR to verify validation workflow runs
 
-### For v2 Users
+### v2 Users
 
-- [ ] Pulled sfops v31.11.0 from upstream
-- [ ] Copied workflows from `project-workflows/v2/` to `.github/workflows/`
-- [ ] (Optional) Added AI provider secrets (`ANTHROPIC_API_KEY` and/or `COPILOT_TOKEN`)
-- [ ] Tested PR validation workflow
-- [ ] Tested push-to-branch workflow
+- [ ] Updated sfp-pro to 50.1.0 and rebuilt Docker images
+- [ ] Created backup tag `pre-v31.11.0-backup`
+- [ ] Pulled sfops v31.11.0 and merged to main
+- [ ] Copied workflows from `project-workflows/v2/`
+- [ ] (Optional) Configured AI provider secrets
+- [ ] Tested a PR to verify validation workflow runs
 
 ---
 
-## Rollback Plan
+## Rollback
 
-If you encounter issues, you can pin workflows to the previous version:
+If you encounter issues, revert to your backup tag:
 
-```yaml
-uses: your-org/sfops-gh-actions/.github/workflows/pr-validate.yml@v31.10.0
+```bash
+git checkout pre-v31.11.0-backup
+git checkout -b rollback-v31.11.0
+git push origin rollback-v31.11.0
 ```
 
-Or revert to the previous project workflow files from your git history.
+Create and merge the PR to restore your previous state.
