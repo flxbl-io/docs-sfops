@@ -72,15 +72,15 @@
 
 ## Changelog
 
-* [November 25](changelog/november25.md)
 * [November 24](changelog/november24.md)
 * [January 25](changelog/january25.md)
 * [May 25](changelog/may25.md)
 * [August 25](changelog/august25.md)
 * [September 25](changelog/october25.md)
+* [November 25](changelog/november25.md)
 
-***
+## Other
 
-* [Legal](legal/README.md)
-  * [Terms of Service for sfops](legal/terms-of-service-for-sfops.md)
-* [Security Policy](security-policy.md)
+* [Legal](other/legal/README.md)
+  * [Terms of Service for sfops](other/legal/terms-of-service-for-sfops.md)
+* [Security Policy](other/security-policy.md)
